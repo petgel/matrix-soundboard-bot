@@ -1,0 +1,256 @@
+info: Initialized media directories
+info: Matrix bot connected as undefined
+info: Matrix Soundboard Bot started successfully
+info: Initialized media directories
+info: Matrix bot connected as undefined
+info: Matrix Soundboard Bot started successfully
+info: Homeserver URL: undefined
+info: User ID: undefined
+info: Access token available: No
+info: Homeserver URL: https://matrix.org
+info: User ID: @soundboard:matrix.org
+info: Access token available: Yes
+info: Initialized media directories
+info: Creating client with homeserver: https://matrix.org
+info: Starting Matrix client...
+info: Matrix bot connected as @soundboard:matrix.org
+info: Matrix Soundboard Bot started successfully
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining...
+error: Error joining room: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/r0/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742762620782.0)
+info: Homeserver URL: https://matrix.org
+info: User ID: @soundboard:matrix.org
+info: Access token available: Yes
+info: Initialized media directories
+info: Creating client with homeserver: https://matrix.org
+info: Starting Matrix client...
+info: Matrix bot connected as @soundboard:matrix.org
+info: Matrix Soundboard Bot started successfully
+info: Homeserver URL: https://matrix.org
+info: User ID: @soundboard:matrix.org
+info: Access token available: Yes
+info: Initialized media directories
+info: Creating client with homeserver: https://matrix.org
+info: Starting Matrix client...
+info: Matrix bot connected as @soundboard:matrix.org
+info: Matrix Soundboard Bot started successfully
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining...
+info: Invited to room !xGpyKheQykxXyIKFaB:matrix.org, auto-joining...
+error: Error joining room: This room is configured to use encryption, but your client does not support encryption.
+error: Error joining room: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/r0/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742763073156.1)
+info: Homeserver URL: https://matrix.org
+info: User ID: @soundboard:matrix.org
+info: Access token available: Yes
+info: Homeserver URL: https://matrix.org
+info: User ID: @soundboard:matrix.org
+info: Access token available: Yes
+info: Homeserver URL: https://matrix.org
+info: User ID: @soundboard:matrix.org
+info: Access token available: Yes
+info: Homeserver URL: https://matrix.org
+info: User ID: @soundboard:matrix.org
+info: Access token available: Yes
+info: Initialized media directories
+info: Creating client with homeserver: https://matrix.org
+info: Starting Matrix client...
+info: Matrix bot connected as @soundboard:matrix.org
+info: Matrix Soundboard Bot started successfully
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining...
+info: Homeserver URL: https://matrix.org
+info: User ID: @soundboard:matrix.org
+info: Access token available: Yes
+info: Initialized media directories
+info: Creating client with homeserver: https://matrix.org
+info: Starting Matrix client...
+info: Matrix bot connected as @soundboard:matrix.org
+info: Matrix Soundboard Bot started successfully
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining...
+info: Sync state: PREPARED
+info: Initial sync completed, bot is ready to respond to commands
+info: Bot is in 1 rooms:
+info: - Testspace (!QDvCFSdrNmlKMFEuJe:matrix.org) - unencrypted
+info: Sync state: SYNCING
+error: Error sending welcome message: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/r0/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742763667906.0)
+info: Homeserver URL: https://matrix.org
+info: User ID: @soundboard:matrix.org
+info: Access token available: Yes
+info: Initialized media directories
+info: Creating client with homeserver: https://matrix.org
+info: Starting Matrix client...
+info: Matrix bot connected as @soundboard:matrix.org
+info: Matrix Soundboard Bot started successfully
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining...
+info: Sync state: PREPARED
+info: Initial sync completed, bot is ready to respond to commands
+info: Bot is in 1 rooms:
+info: - Testspace (!QDvCFSdrNmlKMFEuJe:matrix.org) - unencrypted
+info: Sync state: SYNCING
+error: Error sending welcome message: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/r0/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742763675660.0)
+info: Homeserver URL: https://matrix.org
+info: User ID: @soundboard:matrix.org
+info: Access token available: Yes
+info: Initialized media directories
+info: Creating client with homeserver: https://matrix.org
+info: Starting Matrix client...
+info: Matrix bot connected as @soundboard:matrix.org
+info: Matrix Soundboard Bot started successfully
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining...
+info: Invited to room !QfvlopftFJBKieRMRC:matrix.org, auto-joining...
+info: Sync state: PREPARED
+info: Initial sync completed, bot is ready to respond to commands
+info: Bot is in 2 rooms:
+info: - Testspace (!QDvCFSdrNmlKMFEuJe:matrix.org) - unencrypted
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - unencrypted
+info: Sync state: SYNCING
+error: Error sending welcome message: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/r0/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742763733081.0)
+error: Error sending welcome message: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/r0/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742763733081.0)
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !help
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound list
+error: Error handling command !sound: this.mediaManager.listSounds is not a function
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound play hallo
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound play hallo.mp3
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound play hallo123
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !ping
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !status
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Homeserver URL: https://matrix.org
+info: User ID: @soundboard:matrix.org
+info: Access token available: Yes
+info: Initialized media directories: ./sounds, ./cache
+info: Found 3 sound files
+info: Creating client with homeserver: https://matrix.org
+info: Starting Matrix client...
+info: Matrix bot connected as @soundboard:matrix.org
+info: Matrix Soundboard Bot started successfully
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining...
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound play hallo
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound play hallo.mp3
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound play hallo123
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !ping
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !status
+info: Sync state: PREPARED
+info: Initial sync completed, bot is ready to respond to commands
+info: Bot is in 2 rooms:
+info: - Testspace (!QDvCFSdrNmlKMFEuJe:matrix.org) - unencrypted
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - unencrypted
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+error: Error sending welcome message: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/r0/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742763979978.5)
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound list
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Homeserver URL: https://matrix.org
+info: User ID: @soundboard:matrix.org
+info: Access token available: Yes
+info: Initialized media directories: ./sounds, ./cache
+info: Found 3 sound files
+info: Creating client with homeserver: https://matrix.org
+info: Starting Matrix client...
+info: Matrix bot connected as @soundboard:matrix.org
+info: Matrix Soundboard Bot started successfully
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining...
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound list
+info: Sync state: PREPARED
+info: Initial sync completed, bot is ready to respond to commands
+info: Bot is in 2 rooms:
+info: - Testspace (!QDvCFSdrNmlKMFEuJe:matrix.org) - unencrypted
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - unencrypted
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+error: Error sending welcome message: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/r0/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742764276269.1)
+info: Homeserver URL: https://matrix.org
+info: User ID: @soundboard:matrix.org
+info: Access token available: Yes
+info: Initialized media directories: ./sounds, ./cache
+info: Found 3 sound files
+info: Creating client with homeserver: https://matrix.org
+info: Starting Matrix client...
+info: Matrix bot connected as @soundboard:matrix.org
+info: Matrix Soundboard Bot started successfully
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining...
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound list
+info: Sync state: PREPARED
+info: Initial sync completed, bot is ready to respond to commands
+info: Bot is in 2 rooms:
+info: - Testspace (!QDvCFSdrNmlKMFEuJe:matrix.org) - unencrypted
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - unencrypted
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+error: Error sending welcome message: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/r0/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742764351526.1)
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound play hallo
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
+info: Sync state: SYNCING
