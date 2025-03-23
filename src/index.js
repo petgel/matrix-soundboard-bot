@@ -7,7 +7,10 @@ const { MediaManager } = require('./media');
 // Simple logger configuration
 const logger = winston.createLogger({
   level: 'info',
-  format: winston.format.simple(),
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.simple()
+  ),
   transports: [
     new winston.transports.Console(),
     new winston.transports.File({ filename: 'bot.log' })
@@ -40,14 +43,28 @@ async function main() {
     
     // Create and start the bot
     const bot = new MatrixBot({
-      ...config.matrix,
-      mediaManager,
+      homeserverUrl: config.matrix.homeserverUrl,
+      accessToken: config.matrix.accessToken,
+      userId: config.matrix.userId,
+      mediaManager: mediaManager,
       logger
     });
     
     await bot.start();
     
     logger.info('Matrix Soundboard Bot started successfully');
+    
+    // Handle shutdown gracefully
+    process.on('SIGINT', async () => {
+      logger.info('Received SIGINT, shutting down...');
+      process.exit(0);
+    });
+    
+    process.on('SIGTERM', async () => {
+      logger.info('Received SIGTERM, shutting down...');
+      process.exit(0);
+    });
+    
   } catch (error) {
     logger.error('Failed to start bot: ' + error.message);
     process.exit(1);
