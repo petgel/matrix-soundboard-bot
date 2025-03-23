@@ -326,3 +326,123 @@ info: Sync state: SYNCING {"timestamp":"2025-03-23T21:27:47.146Z"}
 info: Sync state: SYNCING {"timestamp":"2025-03-23T21:28:17.204Z"}
 info: Sync state: SYNCING {"timestamp":"2025-03-23T21:28:47.264Z"}
 info: Received SIGINT, shutting down... {"timestamp":"2025-03-23T21:28:59.836Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-23T21:30:51.474Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-23T21:30:51.476Z"}
+info: Access token available: Yes {"timestamp":"2025-03-23T21:30:51.477Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-23T21:30:51.479Z"}
+info: Found 3 sound files {"timestamp":"2025-03-23T21:30:51.480Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-23T21:30:51.480Z"}
+info: Starting Matrix client... {"timestamp":"2025-03-23T21:30:51.482Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-23T21:30:51.677Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-23T21:30:51.677Z"}
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining... {"timestamp":"2025-03-23T21:30:53.081Z"}
+info: Sync state: PREPARED {"timestamp":"2025-03-23T21:30:53.087Z"}
+info: Initial sync completed, bot is ready to respond to commands {"timestamp":"2025-03-23T21:30:53.087Z"}
+info: Bot is in 2 rooms: {"timestamp":"2025-03-23T21:30:53.088Z"}
+info: - Testspace (!QDvCFSdrNmlKMFEuJe:matrix.org) - unencrypted {"timestamp":"2025-03-23T21:30:53.088Z"}
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - unencrypted {"timestamp":"2025-03-23T21:30:53.088Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:30:53.088Z"}
+error: Error sending welcome message: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/r0/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742765456192.0) {"timestamp":"2025-03-23T21:30:56.341Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:31:23.944Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:31:54.133Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:32:24.191Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:32:54.292Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:33:24.380Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:33:55.037Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:34:25.213Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:34:55.286Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:35:25.352Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:35:55.430Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:36:25.561Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:36:55.658Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:37:25.717Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:37:55.863Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:38:25.955Z"}
+info: Received SIGINT, shutting down... {"timestamp":"2025-03-23T21:38:54.782Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-23T21:38:58.578Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-23T21:38:58.580Z"}
+info: Access token available: Yes {"timestamp":"2025-03-23T21:38:58.581Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-23T21:38:58.584Z"}
+info: Found 3 sound files {"timestamp":"2025-03-23T21:38:58.585Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-23T21:38:58.585Z"}
+info: Starting Matrix client... {"timestamp":"2025-03-23T21:38:58.586Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-23T21:38:58.786Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-23T21:38:58.787Z"}
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining... {"timestamp":"2025-03-23T21:38:59.194Z"}
+info: Sync state: PREPARED {"timestamp":"2025-03-23T21:38:59.198Z"}
+info: Initial sync completed, bot is ready to respond to commands {"timestamp":"2025-03-23T21:38:59.198Z"}
+info: Bot is in 2 rooms: {"timestamp":"2025-03-23T21:38:59.198Z"}
+info: - Testspace (!QDvCFSdrNmlKMFEuJe:matrix.org) - unencrypted {"timestamp":"2025-03-23T21:38:59.199Z"}
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - unencrypted {"timestamp":"2025-03-23T21:38:59.199Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:38:59.199Z"}
+error: Error sending welcome message: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/r0/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742765941542.0) {"timestamp":"2025-03-23T21:39:01.770Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound play hallo {"timestamp":"2025-03-23T21:39:14.837Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:39:14.838Z"}
+info: No active call detected in room !QfvlopftFJBKieRMRC:matrix.org, but will attempt to play sound anyway {"timestamp":"2025-03-23T21:39:14.841Z"}
+info: No active call widget found in room !QfvlopftFJBKieRMRC:matrix.org, but proceeding anyway {"timestamp":"2025-03-23T21:39:15.314Z"}
+info: Playing sound hallo in call in room !QfvlopftFJBKieRMRC:matrix.org {"timestamp":"2025-03-23T21:39:15.315Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:39:15.376Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:39:15.584Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:39:16.039Z"}
+info: Invited to room !HcsVpErwiYhyLExekw:matrix.org, auto-joining... {"timestamp":"2025-03-23T21:39:41.749Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:39:41.751Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:39:43.692Z"}
+info: Room !HcsVpErwiYhyLExekw:matrix.org is encrypted, can't send messages {"timestamp":"2025-03-23T21:39:44.644Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:39:50.702Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:39:51.460Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:39:55.972Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:39:56.864Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:39:57.235Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:40:05.271Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:40:20.587Z"}
+info: Received SIGINT, shutting down... {"timestamp":"2025-03-23T21:40:22.764Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-23T21:40:26.371Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-23T21:40:26.373Z"}
+info: Access token available: Yes {"timestamp":"2025-03-23T21:40:26.374Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-23T21:40:26.377Z"}
+info: Found 3 sound files {"timestamp":"2025-03-23T21:40:26.377Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-23T21:40:26.378Z"}
+info: Starting Matrix client... {"timestamp":"2025-03-23T21:40:26.380Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-23T21:40:26.565Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-23T21:40:26.566Z"}
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining... {"timestamp":"2025-03-23T21:40:28.309Z"}
+info: Sync state: PREPARED {"timestamp":"2025-03-23T21:40:28.316Z"}
+info: Initial sync completed, bot is ready to respond to commands {"timestamp":"2025-03-23T21:40:28.316Z"}
+info: Bot is in 2 rooms: {"timestamp":"2025-03-23T21:40:28.316Z"}
+info: - Testspace (!QDvCFSdrNmlKMFEuJe:matrix.org) - unencrypted {"timestamp":"2025-03-23T21:40:28.317Z"}
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - unencrypted {"timestamp":"2025-03-23T21:40:28.317Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:40:28.317Z"}
+info: Invited to room !HcsVpErwiYhyLExekw:matrix.org, auto-joining... {"timestamp":"2025-03-23T21:40:29.054Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:40:29.056Z"}
+error: Error sending welcome message: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/r0/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742766030508.0) {"timestamp":"2025-03-23T21:40:31.290Z"}
+info: Room !HcsVpErwiYhyLExekw:matrix.org is encrypted, can't send messages {"timestamp":"2025-03-23T21:40:31.334Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:40:59.171Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:41:29.391Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound play hallo {"timestamp":"2025-03-23T21:41:31.398Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:41:31.399Z"}
+info: No active call detected in room !QfvlopftFJBKieRMRC:matrix.org, but will attempt to play sound anyway {"timestamp":"2025-03-23T21:41:31.400Z"}
+info: No active call widget found in room !QfvlopftFJBKieRMRC:matrix.org, but proceeding anyway {"timestamp":"2025-03-23T21:41:31.674Z"}
+info: Playing sound hallo in call in room !QfvlopftFJBKieRMRC:matrix.org {"timestamp":"2025-03-23T21:41:31.675Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:41:31.804Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:41:32.000Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:41:32.677Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:41:33.672Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:41:55.702Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:41:56.644Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:41:56.922Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:42:27.017Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:42:57.091Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:43:27.178Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:43:57.303Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:44:27.846Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound play hallo {"timestamp":"2025-03-23T21:44:37.029Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:44:37.030Z"}
+info: No active call detected in room !QfvlopftFJBKieRMRC:matrix.org, but will attempt to play sound anyway {"timestamp":"2025-03-23T21:44:37.031Z"}
+info: Playing sound hallo in call in room !QfvlopftFJBKieRMRC:matrix.org {"timestamp":"2025-03-23T21:44:37.309Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:44:37.942Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:44:38.503Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:44:39.399Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:44:43.180Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:44:58.384Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-23T21:45:28.496Z"}
+info: Received SIGINT, shutting down... {"timestamp":"2025-03-23T21:45:31.874Z"}
