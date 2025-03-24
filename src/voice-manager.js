@@ -323,4 +323,4 @@ class VoiceManager {
     }
   }
   
-  module.exports = { VoiceManager };
+  module.exports = { VoiceManager }; 
