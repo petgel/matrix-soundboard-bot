@@ -1,10 +1,11 @@
 // Matrix Soundboard Bot - Main Entry Point
-require('dotenv').config();
-const winston = require('winston');
-const { MatrixBot } = require('./bot');
-const { MediaManager } = require('./media');
-const path = require('path');
-const fs = require('fs');
+import dotenv from 'dotenv';
+dotenv.config();
+import winston from 'winston';
+import { MatrixBot } from './bot.js';
+import { MediaManager } from './media.js';
+import path from 'path';
+import fs from 'fs';
 
 // Ensure sound directory exists
 const soundsDir = process.env.SOUNDS_DIRECTORY || './sounds';

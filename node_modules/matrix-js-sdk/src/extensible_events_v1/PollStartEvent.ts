@@ -16,19 +16,19 @@ limitations under the License.
 
 import { NamespacedValue } from "matrix-events-sdk";
 
-import { MessageEvent } from "./MessageEvent";
-import { ExtensibleEventType, IPartialEvent, isEventTypeSame, M_TEXT } from "../@types/extensible_events";
+import { MessageEvent } from "./MessageEvent.ts";
+import { type ExtensibleEventType, type IPartialEvent, isEventTypeSame, M_TEXT } from "../@types/extensible_events.ts";
 import {
-    KnownPollKind,
+    type KnownPollKind,
     M_POLL_KIND_DISCLOSED,
     M_POLL_KIND_UNDISCLOSED,
     M_POLL_START,
-    PollStartEventContent,
-    PollStartSubtype,
-    PollAnswer,
-} from "../@types/polls";
-import { InvalidEventError } from "./InvalidEventError";
-import { ExtensibleEvent } from "./ExtensibleEvent";
+    type PollStartEventContent,
+    type PollStartSubtype,
+    type PollAnswer,
+} from "../@types/polls.ts";
+import { InvalidEventError } from "./InvalidEventError.ts";
+import { ExtensibleEvent } from "./ExtensibleEvent.ts";
 
 /**
  * Represents a poll answer. Note that this is represented as a subtype and is

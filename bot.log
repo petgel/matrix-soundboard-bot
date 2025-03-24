@@ -845,3 +845,560 @@ info: Sync state: SYNCING {"timestamp":"2025-03-24T00:06:49.233Z"}
 info: Sync state: SYNCING {"timestamp":"2025-03-24T00:07:19.294Z"}
 info: Sync state: SYNCING {"timestamp":"2025-03-24T00:07:49.350Z"}
 info: Sync state: SYNCING {"timestamp":"2025-03-24T00:08:19.414Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:08:49.470Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:09:19.526Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:09:49.582Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T00:10:09.113Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T00:15:53.773Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T00:15:53.775Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T00:15:53.776Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T00:15:53.776Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T00:15:53.778Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T00:15:53.779Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T00:15:53.779Z"}
+info: Starting Matrix client... {"timestamp":"2025-03-24T00:15:53.781Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T00:15:53.956Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T00:15:53.956Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !rooms {"timestamp":"2025-03-24T00:15:55.545Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !call {"timestamp":"2025-03-24T00:15:55.546Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !call join {"timestamp":"2025-03-24T00:15:55.546Z"}
+error: Room not found: !QfvlopftFJBKieRMRC:matrix.org {"timestamp":"2025-03-24T00:15:55.547Z"}
+error: Room not found: !QfvlopftFJBKieRMRC:matrix.org {"timestamp":"2025-03-24T00:15:55.547Z"}
+error: Room not found: !QfvlopftFJBKieRMRC:matrix.org {"timestamp":"2025-03-24T00:15:55.548Z"}
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining... {"timestamp":"2025-03-24T00:15:55.550Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T00:15:55.554Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T00:15:55.554Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T00:15:55.555Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T00:15:55.555Z"}
+info: Sync state: PREPARED {"timestamp":"2025-03-24T00:15:55.556Z"}
+info: Initial sync completed, bot is ready to respond to commands {"timestamp":"2025-03-24T00:15:55.556Z"}
+info: Bot is in 3 rooms: {"timestamp":"2025-03-24T00:15:55.556Z"}
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - unencrypted {"timestamp":"2025-03-24T00:15:55.556Z"}
+info: Detected potential voice room from name: Soundboard (!QfvlopftFJBKieRMRC:matrix.org) {"timestamp":"2025-03-24T00:15:55.556Z"}
+info: Manually set voice room: Soundboard (!QfvlopftFJBKieRMRC:matrix.org) {"timestamp":"2025-03-24T00:15:55.556Z"}
+info: - Testspace (!QDvCFSdrNmlKMFEuJe:matrix.org) - unencrypted {"timestamp":"2025-03-24T00:15:55.556Z"}
+info: - Videoraum (!HcsVpErwiYhyLExekw:matrix.org) - ENCRYPTED {"timestamp":"2025-03-24T00:15:55.557Z"}
+info: Detected potential voice room from name: Videoraum (!HcsVpErwiYhyLExekw:matrix.org) {"timestamp":"2025-03-24T00:15:55.557Z"}
+info: Detected 2 voice rooms: {"timestamp":"2025-03-24T00:15:55.557Z"}
+info: - Videoraum (!HcsVpErwiYhyLExekw:matrix.org) - inferred {"timestamp":"2025-03-24T00:15:55.557Z"}
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - name-based {"timestamp":"2025-03-24T00:15:55.557Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:15:55.557Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:15:56.858Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:15:57.742Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:15:58.384Z"}
+error: Error sending welcome message: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/r0/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742775358806.3) {"timestamp":"2025-03-24T00:15:58.890Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:16:04.187Z"}
+info: Invited to room !hQjcLsWhqVxvMflyBu:matrix.org, auto-joining... {"timestamp":"2025-03-24T00:16:20.383Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:16:20.384Z"}
+info: Call event detected in room !hQjcLsWhqVxvMflyBu:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T00:16:21.913Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:16:21.914Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:16:23.602Z"}
+info: Detected potential voice room from name: Voice (!hQjcLsWhqVxvMflyBu:matrix.org) {"timestamp":"2025-03-24T00:16:23.632Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:16:44.726Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:17:09.475Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:17:14.586Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !room {"timestamp":"2025-03-24T00:17:14.874Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:17:14.874Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !rooms {"timestamp":"2025-03-24T00:17:22.383Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:17:22.384Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:17:22.857Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:17:23.581Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:17:31.112Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:17:33.494Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound play hallo {"timestamp":"2025-03-24T00:17:40.835Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:17:40.836Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:17:41.137Z"}
+info: Playing sound hallo in room !QfvlopftFJBKieRMRC:matrix.org (Soundboard) {"timestamp":"2025-03-24T00:17:41.167Z"}
+info: Not in an active call in !QfvlopftFJBKieRMRC:matrix.org, joining now {"timestamp":"2025-03-24T00:17:41.168Z"}
+info: Attempting to join call in room: Soundboard (!QfvlopftFJBKieRMRC:matrix.org) {"timestamp":"2025-03-24T00:17:41.168Z"}
+info: Simulating joining call in room !QfvlopftFJBKieRMRC:matrix.org (Soundboard) {"timestamp":"2025-03-24T00:17:41.168Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:17:41.547Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:17:42.387Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:17:52.223Z"}
+info: Command received from @petgel1:matrix.org in !hQjcLsWhqVxvMflyBu:matrix.org: !sound play hallo {"timestamp":"2025-03-24T00:18:01.590Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:18:01.591Z"}
+info: Playing sound hallo in room !hQjcLsWhqVxvMflyBu:matrix.org (Voice) {"timestamp":"2025-03-24T00:18:01.802Z"}
+info: Not in an active call in !hQjcLsWhqVxvMflyBu:matrix.org, joining now {"timestamp":"2025-03-24T00:18:01.802Z"}
+info: Attempting to join call in room: Voice (!hQjcLsWhqVxvMflyBu:matrix.org) {"timestamp":"2025-03-24T00:18:01.802Z"}
+info: Simulating joining call in room !hQjcLsWhqVxvMflyBu:matrix.org (Voice) {"timestamp":"2025-03-24T00:18:01.803Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:18:01.871Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:18:02.261Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:18:03.213Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:18:33.268Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:19:03.346Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:19:04.577Z"}
+info: Command received from @petgel1:matrix.org in !hQjcLsWhqVxvMflyBu:matrix.org: !help {"timestamp":"2025-03-24T00:19:05.081Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:19:05.082Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:19:05.422Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:19:06.415Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:19:19.385Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:19:27.026Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:19:57.084Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:20:02.525Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:20:09.764Z"}
+info: Command received from @petgel1:matrix.org in !hQjcLsWhqVxvMflyBu:matrix.org: !sound play {"timestamp":"2025-03-24T00:20:18.747Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:20:18.748Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:20:20.107Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:20:20.253Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:20:20.348Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:20:24.209Z"}
+info: Command received from @petgel1:matrix.org in !hQjcLsWhqVxvMflyBu:matrix.org: !sound play hallo {"timestamp":"2025-03-24T00:20:24.612Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:20:24.613Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:20:25.288Z"}
+info: Playing sound hallo in room !hQjcLsWhqVxvMflyBu:matrix.org (Voice) {"timestamp":"2025-03-24T00:20:25.497Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:20:25.989Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:20:28.480Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:20:58.538Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:21:28.594Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:21:58.643Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:22:28.706Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:22:58.763Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:23:28.820Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:23:58.878Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:24:28.943Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:24:59.034Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:25:29.100Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:25:59.162Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:26:29.231Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:26:59.283Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:27:29.432Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:27:59.492Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:28:29.549Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:28:59.609Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:29:29.669Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T00:29:45.123Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T00:43:30.128Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T00:43:30.130Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T00:43:30.131Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T00:43:30.131Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T00:43:30.138Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T00:43:30.138Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T00:43:30.139Z"}
+info: Starting Matrix client... {"timestamp":"2025-03-24T00:43:30.141Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T00:43:30.320Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T00:43:30.321Z"}
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining... {"timestamp":"2025-03-24T00:43:31.395Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T00:43:31.400Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T00:43:31.401Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T00:43:31.401Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T00:43:31.401Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !room {"timestamp":"2025-03-24T00:43:31.403Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !rooms {"timestamp":"2025-03-24T00:43:31.403Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound play hallo {"timestamp":"2025-03-24T00:43:31.404Z"}
+info: Setting !QfvlopftFJBKieRMRC:matrix.org as a voice room for sound playback {"timestamp":"2025-03-24T00:43:31.405Z"}
+error: Room not found: !QfvlopftFJBKieRMRC:matrix.org {"timestamp":"2025-03-24T00:43:31.405Z"}
+info: Command received from @petgel1:matrix.org in !hQjcLsWhqVxvMflyBu:matrix.org: !sound play {"timestamp":"2025-03-24T00:43:31.407Z"}
+info: Command received from @petgel1:matrix.org in !hQjcLsWhqVxvMflyBu:matrix.org: !sound play hallo {"timestamp":"2025-03-24T00:43:31.408Z"}
+info: Setting !hQjcLsWhqVxvMflyBu:matrix.org as a voice room for sound playback {"timestamp":"2025-03-24T00:43:31.408Z"}
+error: Room not found: !hQjcLsWhqVxvMflyBu:matrix.org {"timestamp":"2025-03-24T00:43:31.408Z"}
+info: Sync state: PREPARED {"timestamp":"2025-03-24T00:43:31.409Z"}
+info: Initial sync completed, bot is ready to respond to commands {"timestamp":"2025-03-24T00:43:31.409Z"}
+info: Bot is in 4 rooms: {"timestamp":"2025-03-24T00:43:31.410Z"}
+info: - Testspace (!QDvCFSdrNmlKMFEuJe:matrix.org) - unencrypted {"timestamp":"2025-03-24T00:43:31.410Z"}
+info: - Videoraum (!HcsVpErwiYhyLExekw:matrix.org) - ENCRYPTED {"timestamp":"2025-03-24T00:43:31.410Z"}
+info: Detected potential voice room from name: Videoraum (!HcsVpErwiYhyLExekw:matrix.org) {"timestamp":"2025-03-24T00:43:31.410Z"}
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - unencrypted {"timestamp":"2025-03-24T00:43:31.410Z"}
+info: Detected potential voice room from name: Soundboard (!QfvlopftFJBKieRMRC:matrix.org) {"timestamp":"2025-03-24T00:43:31.410Z"}
+info: Manually set voice room: Soundboard (!QfvlopftFJBKieRMRC:matrix.org) {"timestamp":"2025-03-24T00:43:31.411Z"}
+info: - Voice (!hQjcLsWhqVxvMflyBu:matrix.org) - unencrypted {"timestamp":"2025-03-24T00:43:31.411Z"}
+info: Detected potential voice room from name: Voice (!hQjcLsWhqVxvMflyBu:matrix.org) {"timestamp":"2025-03-24T00:43:31.411Z"}
+info: Detected 3 voice rooms: {"timestamp":"2025-03-24T00:43:31.411Z"}
+info: - Videoraum (!HcsVpErwiYhyLExekw:matrix.org) - inferred {"timestamp":"2025-03-24T00:43:31.411Z"}
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - name-based {"timestamp":"2025-03-24T00:43:31.411Z"}
+info: - Voice (!hQjcLsWhqVxvMflyBu:matrix.org) - inferred {"timestamp":"2025-03-24T00:43:31.411Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:43:31.412Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:43:31.914Z"}
+info: Playing sound hallo in room !QfvlopftFJBKieRMRC:matrix.org (Soundboard) {"timestamp":"2025-03-24T00:43:32.644Z"}
+info: Not in an active call in room !QfvlopftFJBKieRMRC:matrix.org, joining now {"timestamp":"2025-03-24T00:43:32.645Z"}
+info: Attempting to join call in room: Soundboard (!QfvlopftFJBKieRMRC:matrix.org) {"timestamp":"2025-03-24T00:43:32.645Z"}
+info: No widget events found in room !QfvlopftFJBKieRMRC:matrix.org {"timestamp":"2025-03-24T00:43:32.645Z"}
+info: No call widget found in room !QfvlopftFJBKieRMRC:matrix.org {"timestamp":"2025-03-24T00:43:32.646Z"}
+error: Failed to join call in room !QfvlopftFJBKieRMRC:matrix.org, cannot play sound {"timestamp":"2025-03-24T00:43:32.646Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:43:32.701Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:43:33.254Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:43:34.258Z"}
+info: Playing sound hallo in room !hQjcLsWhqVxvMflyBu:matrix.org (Voice) {"timestamp":"2025-03-24T00:43:34.372Z"}
+info: Not in an active call in room !hQjcLsWhqVxvMflyBu:matrix.org, joining now {"timestamp":"2025-03-24T00:43:34.373Z"}
+info: Attempting to join call in room: Voice (!hQjcLsWhqVxvMflyBu:matrix.org) {"timestamp":"2025-03-24T00:43:34.373Z"}
+info: No widget events found in room !hQjcLsWhqVxvMflyBu:matrix.org {"timestamp":"2025-03-24T00:43:34.373Z"}
+info: No call widget found in room !hQjcLsWhqVxvMflyBu:matrix.org {"timestamp":"2025-03-24T00:43:34.374Z"}
+error: Failed to join call in room !hQjcLsWhqVxvMflyBu:matrix.org, cannot play sound {"timestamp":"2025-03-24T00:43:34.374Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:43:35.268Z"}
+error: Error sending welcome message: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/v3/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742777013561.5) {"timestamp":"2025-03-24T00:43:35.546Z"}
+error: Error handling command !sound: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/v3/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742777013561.5) {"timestamp":"2025-03-24T00:43:35.546Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:43:36.215Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:43:42.146Z"}
+info: Command received from @petgel1:matrix.org in !hQjcLsWhqVxvMflyBu:matrix.org: !sound play hallo {"timestamp":"2025-03-24T00:43:59.143Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:43:59.144Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:43:59.678Z"}
+info: Playing sound hallo in room !hQjcLsWhqVxvMflyBu:matrix.org (Voice) {"timestamp":"2025-03-24T00:43:59.746Z"}
+info: Not in an active call in room !hQjcLsWhqVxvMflyBu:matrix.org, joining now {"timestamp":"2025-03-24T00:43:59.746Z"}
+info: Attempting to join call in room: Voice (!hQjcLsWhqVxvMflyBu:matrix.org) {"timestamp":"2025-03-24T00:43:59.746Z"}
+info: No widget events found in room !hQjcLsWhqVxvMflyBu:matrix.org {"timestamp":"2025-03-24T00:43:59.747Z"}
+info: No call widget found in room !hQjcLsWhqVxvMflyBu:matrix.org {"timestamp":"2025-03-24T00:43:59.747Z"}
+error: Failed to join call in room !hQjcLsWhqVxvMflyBu:matrix.org, cannot play sound {"timestamp":"2025-03-24T00:43:59.747Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:44:00.227Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T00:44:02.229Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T00:44:07.912Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T00:51:13.308Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T00:51:13.311Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T00:51:13.311Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T00:51:13.312Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T00:51:13.318Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T00:59:42.360Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T00:59:42.363Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T00:59:42.363Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T00:59:42.363Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T00:59:42.369Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T01:17:32.561Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T01:17:32.563Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T01:17:32.564Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T01:17:32.564Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T01:17:32.570Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T01:17:32.571Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T01:17:32.572Z"}
+info: Starting Matrix client... {"timestamp":"2025-03-24T01:17:32.574Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T01:17:32.743Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T01:17:32.743Z"}
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining... {"timestamp":"2025-03-24T01:17:33.117Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T01:17:33.123Z"}
+error: Error handling event: this.voiceManager.addVoiceRoom is not a function {"timestamp":"2025-03-24T01:17:33.123Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T01:17:33.123Z"}
+error: Error handling event: this.voiceManager.addVoiceRoom is not a function {"timestamp":"2025-03-24T01:17:33.124Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T01:17:33.124Z"}
+error: Error handling event: this.voiceManager.addVoiceRoom is not a function {"timestamp":"2025-03-24T01:17:33.124Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T01:17:33.124Z"}
+error: Error handling event: this.voiceManager.addVoiceRoom is not a function {"timestamp":"2025-03-24T01:17:33.124Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !room {"timestamp":"2025-03-24T01:17:33.126Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !rooms {"timestamp":"2025-03-24T01:17:33.126Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound play hallo {"timestamp":"2025-03-24T01:17:33.126Z"}
+error: Error handling command !rooms: this.voiceManager.getVoiceRooms is not a function {"timestamp":"2025-03-24T01:17:33.127Z"}
+error: Error handling command !sound: this.voiceManager.getVoiceRooms is not a function {"timestamp":"2025-03-24T01:17:33.129Z"}
+info: Command received from @petgel1:matrix.org in !hQjcLsWhqVxvMflyBu:matrix.org: !sound play hallo {"timestamp":"2025-03-24T01:17:33.130Z"}
+info: Command received from @petgel1:matrix.org in !hQjcLsWhqVxvMflyBu:matrix.org: !sound play hallo {"timestamp":"2025-03-24T01:17:33.131Z"}
+error: Error handling command !sound: this.voiceManager.getVoiceRooms is not a function {"timestamp":"2025-03-24T01:17:33.132Z"}
+error: Error handling command !sound: this.voiceManager.getVoiceRooms is not a function {"timestamp":"2025-03-24T01:17:33.132Z"}
+info: Sync state: PREPARED {"timestamp":"2025-03-24T01:17:33.133Z"}
+info: Initial sync completed, bot is ready to respond to commands {"timestamp":"2025-03-24T01:17:33.133Z"}
+info: Bot is in 4 rooms: {"timestamp":"2025-03-24T01:17:33.133Z"}
+info: - Testspace (!QDvCFSdrNmlKMFEuJe:matrix.org) - unencrypted {"timestamp":"2025-03-24T01:17:33.133Z"}
+error: Error checking room !QDvCFSdrNmlKMFEuJe:matrix.org: this.voiceManager.detectVoiceRoom is not a function {"timestamp":"2025-03-24T01:17:33.134Z"}
+info: - Videoraum (!HcsVpErwiYhyLExekw:matrix.org) - ENCRYPTED {"timestamp":"2025-03-24T01:17:33.134Z"}
+error: Error checking room !HcsVpErwiYhyLExekw:matrix.org: this.voiceManager.detectVoiceRoom is not a function {"timestamp":"2025-03-24T01:17:33.134Z"}
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - unencrypted {"timestamp":"2025-03-24T01:17:33.134Z"}
+error: Error checking room !QfvlopftFJBKieRMRC:matrix.org: this.voiceManager.detectVoiceRoom is not a function {"timestamp":"2025-03-24T01:17:33.134Z"}
+info: - Voice (!hQjcLsWhqVxvMflyBu:matrix.org) - unencrypted {"timestamp":"2025-03-24T01:17:33.134Z"}
+error: Error checking room !hQjcLsWhqVxvMflyBu:matrix.org: this.voiceManager.detectVoiceRoom is not a function {"timestamp":"2025-03-24T01:17:33.135Z"}
+error: Error sending welcome message: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/v3/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742779055276.4) {"timestamp":"2025-03-24T01:17:35.356Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T06:35:20.585Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T06:46:26.004Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T06:46:26.006Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T06:46:26.007Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T06:46:26.007Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T06:46:26.015Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T06:46:26.016Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T06:46:26.017Z"}
+info: Starting Matrix client... {"timestamp":"2025-03-24T06:46:26.019Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T06:46:26.207Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T06:46:26.208Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !rooms {"timestamp":"2025-03-24T06:46:26.812Z"}
+info: Command received from @petgel1:matrix.org in !QfvlopftFJBKieRMRC:matrix.org: !sound play hallo {"timestamp":"2025-03-24T06:46:26.814Z"}
+info: Setting !QfvlopftFJBKieRMRC:matrix.org as a voice room for sound playback {"timestamp":"2025-03-24T06:46:26.818Z"}
+info: Command received from @petgel1:matrix.org in !hQjcLsWhqVxvMflyBu:matrix.org: !sound play hallo {"timestamp":"2025-03-24T06:46:26.822Z"}
+info: Call event detected in room !hQjcLsWhqVxvMflyBu:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T06:46:26.823Z"}
+info: Command received from @petgel1:matrix.org in !hQjcLsWhqVxvMflyBu:matrix.org: !sound play hallo {"timestamp":"2025-03-24T06:46:26.823Z"}
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining... {"timestamp":"2025-03-24T06:46:26.835Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T06:46:26.838Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T06:46:26.839Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T06:46:26.839Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T06:46:26.839Z"}
+info: Sync state: PREPARED {"timestamp":"2025-03-24T06:46:26.840Z"}
+info: Initial sync completed, bot is ready to respond to commands {"timestamp":"2025-03-24T06:46:26.840Z"}
+info: Bot is in 4 rooms: {"timestamp":"2025-03-24T06:46:26.840Z"}
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - unencrypted {"timestamp":"2025-03-24T06:46:26.840Z"}
+info: - Voice (!hQjcLsWhqVxvMflyBu:matrix.org) - unencrypted {"timestamp":"2025-03-24T06:46:26.841Z"}
+info: - Testspace (!QDvCFSdrNmlKMFEuJe:matrix.org) - unencrypted {"timestamp":"2025-03-24T06:46:26.841Z"}
+info: - Videoraum (!HcsVpErwiYhyLExekw:matrix.org) - ENCRYPTED {"timestamp":"2025-03-24T06:46:26.841Z"}
+info: Detected 3 voice rooms: {"timestamp":"2025-03-24T06:46:26.841Z"}
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - undefined {"timestamp":"2025-03-24T06:46:26.841Z"}
+info: - Voice (!hQjcLsWhqVxvMflyBu:matrix.org) - undefined {"timestamp":"2025-03-24T06:46:26.841Z"}
+info: - Videoraum (!HcsVpErwiYhyLExekw:matrix.org) - matrix-call {"timestamp":"2025-03-24T06:46:26.841Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T06:46:26.843Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T06:46:27.173Z"}
+error: Error handling command !sound: this.voiceManager.playSound is not a function {"timestamp":"2025-03-24T06:46:27.306Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T06:46:27.344Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T06:46:27.643Z"}
+error: Error handling command !sound: this.voiceManager.playSound is not a function {"timestamp":"2025-03-24T06:46:27.763Z"}
+error: Error handling command !sound: this.voiceManager.playSound is not a function {"timestamp":"2025-03-24T06:46:28.157Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T06:46:28.390Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T06:46:29.072Z"}
+error: Error sending welcome message: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/v3/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742798789042.7) {"timestamp":"2025-03-24T06:46:29.141Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T06:46:29.155Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T06:46:34.627Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T06:46:35.690Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T10:51:49.302Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T10:51:49.304Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T10:51:49.304Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T10:51:49.305Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T10:51:49.313Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T10:51:49.314Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T10:51:49.314Z"}
+info: Starting Matrix client... {"timestamp":"2025-03-24T10:51:49.317Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T10:51:49.563Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T10:51:49.563Z"}
+info: Call event detected in room !hQjcLsWhqVxvMflyBu:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T10:51:50.277Z"}
+info: Command received from @petgel1:matrix.org in !hQjcLsWhqVxvMflyBu:matrix.org: !sound play hallo {"timestamp":"2025-03-24T10:51:50.277Z"}
+info: Call event detected in room !hQjcLsWhqVxvMflyBu:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T10:51:50.278Z"}
+info: Invited to room !QDvCFSdrNmlKMFEuJe:matrix.org, auto-joining... {"timestamp":"2025-03-24T10:51:50.288Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T10:51:50.292Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T10:51:50.293Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T10:51:50.293Z"}
+info: Call event detected in room !HcsVpErwiYhyLExekw:matrix.org: org.matrix.msc3401.call.member {"timestamp":"2025-03-24T10:51:50.294Z"}
+info: Sync state: PREPARED {"timestamp":"2025-03-24T10:51:50.295Z"}
+info: Initial sync completed, bot is ready to respond to commands {"timestamp":"2025-03-24T10:51:50.295Z"}
+info: Bot is in 4 rooms: {"timestamp":"2025-03-24T10:51:50.295Z"}
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - unencrypted {"timestamp":"2025-03-24T10:51:50.296Z"}
+info: - Voice (!hQjcLsWhqVxvMflyBu:matrix.org) - unencrypted {"timestamp":"2025-03-24T10:51:50.296Z"}
+info: - Testspace (!QDvCFSdrNmlKMFEuJe:matrix.org) - unencrypted {"timestamp":"2025-03-24T10:51:50.296Z"}
+info: - Videoraum (!HcsVpErwiYhyLExekw:matrix.org) - ENCRYPTED {"timestamp":"2025-03-24T10:51:50.296Z"}
+info: Detected 3 voice rooms: {"timestamp":"2025-03-24T10:51:50.296Z"}
+info: - Voice (!hQjcLsWhqVxvMflyBu:matrix.org) - undefined {"timestamp":"2025-03-24T10:51:50.296Z"}
+info: - Videoraum (!HcsVpErwiYhyLExekw:matrix.org) - matrix-call {"timestamp":"2025-03-24T10:51:50.296Z"}
+info: - Soundboard (!QfvlopftFJBKieRMRC:matrix.org) - undefined {"timestamp":"2025-03-24T10:51:50.297Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T10:51:50.298Z"}
+error: No active call in room !hQjcLsWhqVxvMflyBu:matrix.org {"timestamp":"2025-03-24T10:51:51.449Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T10:51:51.459Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T10:51:51.956Z"}
+error: Error sending welcome message: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (100) (https://matrix.org/_matrix/client/v3/rooms/!QDvCFSdrNmlKMFEuJe%3Amatrix.org/send/m.room.message/m1742813513422.2) {"timestamp":"2025-03-24T10:51:54.147Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T10:51:56.339Z"}
+info: Command received from @petgel1:matrix.org in !hQjcLsWhqVxvMflyBu:matrix.org: !sound play hallo {"timestamp":"2025-03-24T10:52:04.001Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T10:52:04.003Z"}
+error: No active call in room !hQjcLsWhqVxvMflyBu:matrix.org {"timestamp":"2025-03-24T10:52:04.323Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T10:52:04.382Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T10:52:04.797Z"}
+info: Sync state: SYNCING {"timestamp":"2025-03-24T10:52:08.130Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T10:52:12.790Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T11:20:46.341Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T11:20:46.343Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T11:20:46.344Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T11:20:46.344Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T11:20:46.350Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T11:20:46.351Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T11:20:46.352Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T11:20:51.591Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T11:22:59.598Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T11:22:59.601Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T11:22:59.601Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T11:22:59.601Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T11:22:59.607Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T11:22:59.608Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T11:22:59.608Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T11:23:01.793Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T11:36:08.397Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T11:36:08.399Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T11:36:08.400Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T11:36:08.400Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T11:36:08.406Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T11:36:08.407Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T11:36:08.407Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T11:36:08.616Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T11:36:08.616Z"}
+info: Joining room !QDvCFSdrNmlKMFEuJe:matrix.org {"timestamp":"2025-03-24T11:36:09.160Z"}
+info: Sync completed {"timestamp":"2025-03-24T11:36:09.170Z"}
+info: Room: Testspace (unencrypted) {"timestamp":"2025-03-24T11:36:09.170Z"}
+info: Room: Videoraum (ENCRYPTED) {"timestamp":"2025-03-24T11:36:09.170Z"}
+info: Room: Soundboard (unencrypted) {"timestamp":"2025-03-24T11:36:09.170Z"}
+info: Room: Voice (unencrypted) {"timestamp":"2025-03-24T11:36:09.171Z"}
+info: Voice rooms: 1 {"timestamp":"2025-03-24T11:36:09.171Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T11:37:34.335Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T11:37:34.337Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T11:37:34.338Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T11:37:34.338Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T11:37:34.343Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T11:37:34.344Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T11:37:34.344Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T11:37:34.529Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T11:37:34.530Z"}
+info: Joining room !QDvCFSdrNmlKMFEuJe:matrix.org {"timestamp":"2025-03-24T11:37:34.886Z"}
+info: Sync completed {"timestamp":"2025-03-24T11:37:34.897Z"}
+info: Room: Testspace (unencrypted) {"timestamp":"2025-03-24T11:37:34.898Z"}
+info: Room: Videoraum (ENCRYPTED) {"timestamp":"2025-03-24T11:37:34.898Z"}
+info: Room: Soundboard (unencrypted) {"timestamp":"2025-03-24T11:37:34.898Z"}
+info: Room: Voice (unencrypted) {"timestamp":"2025-03-24T11:37:34.898Z"}
+info: Voice rooms: 1 {"timestamp":"2025-03-24T11:37:34.898Z"}
+warn: Not sending greeting - insufficient power level (0) {"timestamp":"2025-03-24T11:37:37.286Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T12:50:33.506Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T12:50:51.136Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T12:50:51.138Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T12:50:51.138Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T12:50:51.139Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T12:50:51.144Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T12:50:51.145Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T12:50:51.145Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T12:50:51.352Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T12:50:51.353Z"}
+info: Joining room !QDvCFSdrNmlKMFEuJe:matrix.org {"timestamp":"2025-03-24T12:50:52.071Z"}
+info: Sync completed {"timestamp":"2025-03-24T12:50:52.077Z"}
+info: Room: Soundboard (unencrypted) {"timestamp":"2025-03-24T12:50:52.078Z"}
+info: Room: Testspace (unencrypted) {"timestamp":"2025-03-24T12:50:52.078Z"}
+info: Room: Voice (unencrypted) {"timestamp":"2025-03-24T12:50:52.078Z"}
+info: Room: Videoraum (ENCRYPTED) {"timestamp":"2025-03-24T12:50:52.078Z"}
+info: Voice rooms: 1 {"timestamp":"2025-03-24T12:50:52.078Z"}
+warn: Not sending greeting - insufficient power level (0) {"timestamp":"2025-03-24T12:50:54.341Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T12:51:28.788Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T12:55:44.548Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T12:55:44.550Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T12:55:44.550Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T12:55:44.551Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T12:55:44.558Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T12:55:44.559Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T12:55:44.559Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T12:55:46.377Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T12:55:46.377Z"}
+info: Joining room !QDvCFSdrNmlKMFEuJe:matrix.org {"timestamp":"2025-03-24T12:55:47.642Z"}
+info: Sync completed {"timestamp":"2025-03-24T12:55:47.652Z"}
+info: Room: Testspace (unencrypted) {"timestamp":"2025-03-24T12:55:47.652Z"}
+info: Room: Soundboard (unencrypted) {"timestamp":"2025-03-24T12:55:47.652Z"}
+info: Room: Videoraum (ENCRYPTED) {"timestamp":"2025-03-24T12:55:47.652Z"}
+info: Room: Voice (unencrypted) {"timestamp":"2025-03-24T12:55:47.652Z"}
+info: Voice rooms: 1 {"timestamp":"2025-03-24T12:55:47.652Z"}
+warn: Not sending greeting - insufficient power level (0) {"timestamp":"2025-03-24T12:55:49.797Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T13:02:29.666Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T13:02:55.035Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T13:02:55.037Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T13:02:55.038Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T13:02:55.038Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T13:02:55.044Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T13:02:55.044Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T13:02:55.045Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T13:03:03.777Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T13:03:03.778Z"}
+info: Joining room !QDvCFSdrNmlKMFEuJe:matrix.org {"timestamp":"2025-03-24T13:03:14.496Z"}
+info: Sync completed {"timestamp":"2025-03-24T13:03:14.509Z"}
+info: Room: Testspace (unencrypted) {"timestamp":"2025-03-24T13:03:14.509Z"}
+info: Room: Soundboard (unencrypted) {"timestamp":"2025-03-24T13:03:14.509Z"}
+info: Room: Videoraum (ENCRYPTED) {"timestamp":"2025-03-24T13:03:14.509Z"}
+info: Room: Voice (unencrypted) {"timestamp":"2025-03-24T13:03:14.509Z"}
+info: Voice rooms: 1 {"timestamp":"2025-03-24T13:03:14.509Z"}
+warn: Not sending greeting - insufficient power level (0) {"timestamp":"2025-03-24T13:03:17.302Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T13:12:03.020Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T13:14:32.850Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T13:14:32.852Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T13:14:32.853Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T13:14:32.853Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T13:14:32.859Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T13:14:32.860Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T13:14:32.860Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T13:14:33.749Z"}
+info: Setting sound room: Soundboard (!QfvlopftFJBKieRMRC:matrix.org) {"timestamp":"2025-03-24T13:14:33.750Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T13:14:33.751Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T13:14:58.216Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T13:15:52.490Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T13:15:52.493Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T13:15:52.493Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T13:15:52.493Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T13:15:52.500Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T13:15:52.501Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T13:15:52.501Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T13:15:52.904Z"}
+info: Setting sound room: Soundboard (!QfvlopftFJBKieRMRC:matrix.org) {"timestamp":"2025-03-24T13:15:52.904Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T13:15:52.905Z"}
+error: Error executing !help: addPendingEvent called on an event with known txnId m.text {"timestamp":"2025-03-24T13:15:58.517Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T13:16:11.765Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T13:19:10.864Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T13:19:10.866Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T13:19:10.867Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T13:19:10.867Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T13:19:10.873Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T13:19:10.873Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T13:19:10.874Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T13:19:11.521Z"}
+info: Setting sound room: Soundboard (!QfvlopftFJBKieRMRC:matrix.org) {"timestamp":"2025-03-24T13:19:11.522Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T13:19:11.523Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T13:20:08.730Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T13:21:20.736Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T13:21:20.738Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T13:21:20.739Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T13:21:20.739Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T13:21:20.744Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T13:21:20.745Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T13:21:20.745Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T13:21:21.707Z"}
+info: Setting sound room: Soundboard (!QfvlopftFJBKieRMRC:matrix.org) {"timestamp":"2025-03-24T13:21:21.708Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T13:21:21.709Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T15:12:30.462Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T15:14:34.790Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T15:14:34.792Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T15:14:34.793Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T15:14:34.793Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T15:14:34.799Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T15:14:34.800Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T15:14:34.800Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T15:14:48.061Z"}
+info: Setting sound room: Soundboard (!QfvlopftFJBKieRMRC:matrix.org) {"timestamp":"2025-03-24T15:14:48.062Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T15:14:48.063Z"}
+error: Error playing sound: this.mediaManager.playSound is not a function {"timestamp":"2025-03-24T15:15:46.307Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T15:16:27.324Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T15:21:01.076Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T15:21:01.078Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T15:21:01.078Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T15:21:01.078Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T15:21:01.084Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T15:21:01.085Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T15:21:01.085Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T15:21:01.746Z"}
+info: Setting sound room: Soundboard (!QfvlopftFJBKieRMRC:matrix.org) {"timestamp":"2025-03-24T15:21:01.746Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T15:21:01.747Z"}
+error: No active call in room !hQjcLsWhqVxvMflyBu:matrix.org {"timestamp":"2025-03-24T15:21:33.984Z"}
+error: Error playing sound: addPendingEvent called on an event with known txnId m.text {"timestamp":"2025-03-24T15:21:33.984Z"}
+error: Error executing !play: addPendingEvent called on an event with known txnId m.text {"timestamp":"2025-03-24T15:21:33.984Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T15:21:41.125Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T15:23:12.382Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T15:23:12.384Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T15:23:12.384Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T15:23:12.385Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T15:23:12.390Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T15:23:12.391Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T15:23:12.391Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T15:23:16.823Z"}
+info: No widget events found in room !QDvCFSdrNmlKMFEuJe:matrix.org {"timestamp":"2025-03-24T15:23:16.823Z"}
+info: No widget events found in room !QfvlopftFJBKieRMRC:matrix.org {"timestamp":"2025-03-24T15:23:16.823Z"}
+info: Setting sound room: Soundboard (!QfvlopftFJBKieRMRC:matrix.org) {"timestamp":"2025-03-24T15:23:16.824Z"}
+info: No widget events found in room !hQjcLsWhqVxvMflyBu:matrix.org {"timestamp":"2025-03-24T15:23:16.824Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T15:23:16.825Z"}
+error: No active call in room !hQjcLsWhqVxvMflyBu:matrix.org {"timestamp":"2025-03-24T15:23:23.538Z"}
+error: Event error: addPendingEvent called on an event with known txnId m.text {"timestamp":"2025-03-24T15:23:23.607Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T15:23:31.575Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T15:24:46.175Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T15:24:46.177Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T15:24:46.178Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T15:24:46.178Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T15:24:46.184Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T15:24:46.184Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T15:24:46.185Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T15:24:46.596Z"}
+info: No widget events found in room !QDvCFSdrNmlKMFEuJe:matrix.org {"timestamp":"2025-03-24T15:24:46.597Z"}
+info: No widget events found in room !QfvlopftFJBKieRMRC:matrix.org {"timestamp":"2025-03-24T15:24:46.597Z"}
+info: Setting sound room: Soundboard (!QfvlopftFJBKieRMRC:matrix.org) {"timestamp":"2025-03-24T15:24:46.597Z"}
+info: No widget events found in room !hQjcLsWhqVxvMflyBu:matrix.org {"timestamp":"2025-03-24T15:24:46.597Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T15:24:46.599Z"}
+error: No active call in room !hQjcLsWhqVxvMflyBu:matrix.org {"timestamp":"2025-03-24T15:24:46.665Z"}
+error: No active call in room !hQjcLsWhqVxvMflyBu:matrix.org {"timestamp":"2025-03-24T15:25:00.274Z"}
+error: Error playing sound: addPendingEvent called on an event with known txnId m.text {"timestamp":"2025-03-24T15:25:00.274Z"}
+error: Error executing !play: addPendingEvent called on an event with known txnId m.text {"timestamp":"2025-03-24T15:25:00.274Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T15:25:07.391Z"}
+info: Homeserver URL: https://matrix.org {"timestamp":"2025-03-24T15:28:05.934Z"}
+info: User ID: @soundboard:matrix.org {"timestamp":"2025-03-24T15:28:05.937Z"}
+info: Access token available: Yes {"timestamp":"2025-03-24T15:28:05.937Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-24T15:28:05.937Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-24T15:28:05.943Z"}
+info: Found 3 sound files {"timestamp":"2025-03-24T15:28:05.944Z"}
+info: Creating client with homeserver: https://matrix.org {"timestamp":"2025-03-24T15:28:05.944Z"}
+info: Matrix bot connected as @soundboard:matrix.org {"timestamp":"2025-03-24T15:28:10.881Z"}
+info: No widget events found in room !QDvCFSdrNmlKMFEuJe:matrix.org {"timestamp":"2025-03-24T15:28:10.881Z"}
+info: No widget events found in room !QfvlopftFJBKieRMRC:matrix.org {"timestamp":"2025-03-24T15:28:10.882Z"}
+info: Setting sound room: Soundboard (!QfvlopftFJBKieRMRC:matrix.org) {"timestamp":"2025-03-24T15:28:10.882Z"}
+info: No widget events found in room !hQjcLsWhqVxvMflyBu:matrix.org {"timestamp":"2025-03-24T15:28:10.882Z"}
+info: Matrix Soundboard Bot started successfully {"timestamp":"2025-03-24T15:28:10.883Z"}
+error: No active call in room !hQjcLsWhqVxvMflyBu:matrix.org {"timestamp":"2025-03-24T15:28:28.218Z"}
+info: Shutting down bot... {"timestamp":"2025-03-24T15:28:34.803Z"}

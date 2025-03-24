@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { RendezvousFailureListener, RendezvousFailureReason } from ".";
+import { type RendezvousFailureListener, type RendezvousFailureReason } from "./index.ts";
 
 export interface RendezvousTransportDetails {
     type: string;

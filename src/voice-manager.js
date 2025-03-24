@@ -1,326 +1,202 @@
+import { LiveKitClient } from './livekit-client.js';
+import { ElementCallJwtService } from './element-call-jwt-service.js';
+
 class VoiceManager {
-    constructor(matrixClient, logger) {
-      this.client = matrixClient;
-      this.logger = logger;
-      this.voiceRooms = new Map(); // Map to store detected voice rooms
-      this.activeRooms = new Map(); // Tracks rooms where bot is in call
+    constructor(client, logger) {
+        this.client = client;
+        this.logger = logger;
+        this.livekitClient = new LiveKitClient();
+        this.jwtService = new ElementCallJwtService();
+        this.activeRooms = new Map();
+        this.voiceRooms = new Map();
     }
-    
-    // Add a room to the voice rooms map
-    addVoiceRoom(roomId, voiceInfo) {
-      this.voiceRooms.set(roomId, voiceInfo);
+
+    // Voice room management methods
+    addVoiceRoom(roomId, details) {
+        this.voiceRooms.set(roomId, details);
     }
-    
-    // Get the map of voice rooms
+
     getVoiceRooms() {
-      return this.voiceRooms;
+        return this.voiceRooms;
     }
-    
-    // Get the map of active rooms (where bot is in call)
-    getActiveRooms() {
-      return this.activeRooms;
+
+    hasActiveCall(roomId) {
+        return this.activeRooms.has(roomId);
     }
-    
-    // Check if a room has voice capabilities and mark it as a voice room
-    detectVoiceRoom(room) {
-      if (!room) return false;
-      
-      // Look for call widgets in room state
-      const widgetEvents = room.currentState.getStateEvents('m.widget');
-      if (widgetEvents && widgetEvents.length > 0) {
-        for (const event of widgetEvents) {
-          const content = event.getContent();
-          if (content && (content.type === 'jitsi' || (content.url && content.url.includes('element-call')))) {
-            this.logger.info(`Detected voice room: ${room.name} (${room.roomId})`);
-            this.voiceRooms.set(room.roomId, {
-              widgetType: content.type || 'element-call',
-              url: content.url,
-              detected: new Date()
-            });
-            return true;
-          }
+
+    async detectVoiceRoom(room) {
+        const callWidget = await this.getCallWidgetInRoom(room.roomId);
+        if (callWidget) {
+            this.addVoiceRoom(room.roomId, { detected: 'widget-based' });
+        } else if (room?.name?.toLowerCase().includes('voice')) {
+            this.addVoiceRoom(room.roomId, { detected: 'name-based' });
         }
-      }
-      
-      // Also check for m.call state events
-      const stateEvents = room.currentState.getStateEvents();
-      if (stateEvents) {
-        for (const [eventType, eventsByStateKey] of Object.entries(stateEvents)) {
-          if (eventType === 'm.call' || eventType.includes('call')) {
-            for (const [stateKey, event] of Object.entries(eventsByStateKey)) {
-              this.logger.info(`Detected call state event in room ${room.roomId}: ${eventType}`);
-              this.voiceRooms.set(room.roomId, {
-                widgetType: 'matrix-call',
-                detected: new Date()
-              });
-              return true;
-            }
-          }
-        }
-      }
-      
-      return false;
     }
-    
+
+    setVoiceRoom(roomId, reason) {
+        this.addVoiceRoom(roomId, { detected: reason });
+    }
+
     async getCallWidgetInRoom(roomId) {
-      const room = this.client.getRoom(roomId);
-      if (!room) {
-        this.logger.error(`Room not found: ${roomId}`);
-        return null;
-      }
-      
-      // Look for call widgets in room state
-      const widgetEvents = room.currentState.getStateEvents('m.widget');
-      if (!widgetEvents || widgetEvents.length === 0) {
-        this.logger.info(`No widget events found in room ${roomId}`);
-        return null;
-      }
-      
-      // Find Element Call widget
-      for (const event of widgetEvents) {
-        const content = event.getContent();
-        if (content && content.type === 'jitsi' || 
-            (content && content.url && content.url.includes('element-call'))) {
-          this.logger.info(`Found call widget: ${JSON.stringify(content, null, 2)}`);
-          return {
-            widgetId: event.getStateKey(),
-            url: content.url,
-            name: content.name || 'Call',
-            data: content.data || {}
-          };
-        }
-      }
-      
-      return null;
-    }
-    
-    extractLivekitParams(widgetUrl) {
-      try {
-        const url = new URL(widgetUrl);
-        const fragment = url.hash.substring(1); // Remove the leading #
-        const params = new URLSearchParams(fragment);
-        
-        return {
-          roomId: params.get('roomId'),
-          roomAlias: params.get('roomAlias') || params.get('room') || params.get('r'),
-          token: params.get('token'),
-          baseUrl: `${url.protocol}//${url.host}`
-        };
-      } catch (error) {
-        this.logger.error(`Error extracting LiveKit params: ${error.message}`);
-        return null;
-      }
-    }
-    
-    getAvailableVoiceRooms() {
-      const voiceRoomIds = Array.from(this.voiceRooms.keys());
-      return voiceRoomIds.map(roomId => {
         const room = this.client.getRoom(roomId);
-        return {
-          roomId,
-          name: room?.name || 'Unknown',
-          active: this.activeRooms.has(roomId)
-        };
-      });
-    }
-    
-    async joinCall(requestRoomId) {
-      try {
-        // Check if this room itself is a voice room
-        if (this.voiceRooms.has(requestRoomId)) {
-          const room = this.client.getRoom(requestRoomId);
-          this.logger.info(`Joining call in voice room: ${room.name} (${requestRoomId})`);
-          
-          // Find the call widget
-          const callWidget = await this.getCallWidgetInRoom(requestRoomId);
-          
-          if (!callWidget) {
-            this.logger.info(`No active call found in voice room ${requestRoomId}`);
-            return false;
-          }
-          
-          this.logger.info(`Found call widget in room ${requestRoomId}: ${callWidget.url}`);
-          
-          // Store information about this call
-          this.activeRooms.set(requestRoomId, {
-            callWidget,
-            originRoomId: requestRoomId,
-            joinedAt: new Date(),
-            roomName: room.name
-          });
-          
-          this.logger.info(`Bot joined call in room ${requestRoomId} (${room.name})`);
-          return true;
-        }
-        
-        // If not, look for available voice rooms
-        const voiceRooms = this.getAvailableVoiceRooms();
-        if (voiceRooms.length === 0) {
-          this.logger.error('No voice rooms available');
-          return false;
-        }
-        
-        // Find the first available voice room
-        const targetVoiceRoom = voiceRooms[0];
-        const voiceRoomId = targetVoiceRoom.roomId;
-        const room = this.client.getRoom(voiceRoomId);
-        
-        this.logger.info(`Joining call in voice room: ${room.name} (${voiceRoomId})`);
-        
-        // Find the call widget
-        const callWidget = await this.getCallWidgetInRoom(voiceRoomId);
-        
-        if (!callWidget) {
-          this.logger.info(`No active call found in voice room ${voiceRoomId}`);
-          return false;
-        }
-        
-        this.logger.info(`Found call widget in room ${voiceRoomId}: ${callWidget.url}`);
-        
-        // Store information about this call
-        this.activeRooms.set(voiceRoomId, {
-          callWidget,
-          originRoomId: requestRoomId,
-          joinedAt: new Date(),
-          roomName: room.name
-        });
-        
-        this.logger.info(`Bot joined call in room ${voiceRoomId} (${room.name})`);
-        return true;
-      } catch (error) {
-        this.logger.error(`Error joining call: ${error.message}`);
-        return false;
-      }
-    }
-    
-    async leaveCall(roomId) {
-      // If a specific room is provided, leave that call
-      if (roomId && this.activeRooms.has(roomId)) {
-        try {
-          this.activeRooms.delete(roomId);
-          this.logger.info(`Bot left call in room ${roomId}`);
-          return true;
-        } catch (error) {
-          this.logger.error(`Error leaving call in room ${roomId}: ${error.message}`);
-          return false;
-        }
-      }
-      
-      // Otherwise, leave all active calls
-      if (this.activeRooms.size === 0) {
-        this.logger.info('Bot is not in any calls');
-        return false;
-      }
-      
-      try {
-        const roomsLeft = [];
-        for (const roomId of this.activeRooms.keys()) {
-          this.activeRooms.delete(roomId);
-          roomsLeft.push(roomId);
-        }
-        
-        this.logger.info(`Bot left calls in rooms: ${roomsLeft.join(', ')}`);
-        return true;
-      } catch (error) {
-        this.logger.error(`Error leaving calls: ${error.message}`);
-        return false;
-      }
-    }
-    
-    async playSound(requestRoomId, sound, mediaManager) {
-      try {
-        let targetRoomId;
-        
-        // Check if the request room is itself a voice room
-        if (this.voiceRooms.has(requestRoomId)) {
-          targetRoomId = requestRoomId;
-        } else {
-          // Otherwise find a voice room the bot is in
-          const activeVoiceRooms = Array.from(this.activeRooms.keys())
-            .filter(roomId => this.voiceRooms.has(roomId));
-          
-          if (activeVoiceRooms.length > 0) {
-            // Use an active voice room
-            targetRoomId = activeVoiceRooms[0];
-          } else {
-            // Try to join a call in an available voice room
-            const joined = await this.joinCall(requestRoomId);
-            if (!joined) {
-              this.logger.error('Failed to join any voice rooms');
-              return false;
-            }
-            
-            // Find the voice room we just joined
-            const activeVoiceRooms = Array.from(this.activeRooms.keys())
-              .filter(roomId => this.voiceRooms.has(roomId));
-            
-            if (activeVoiceRooms.length === 0) {
-              this.logger.error('Failed to find the joined voice room');
-              return false;
-            }
-            
-            targetRoomId = activeVoiceRooms[0];
-          }
-        }
-        
-        // Make sure we have a valid voice room
-        if (!targetRoomId) {
-          this.logger.error('No target voice room found');
-          return false;
-        }
-        
-        const room = this.client.getRoom(targetRoomId);
         if (!room) {
-          this.logger.error(`Voice room not found: ${targetRoomId}`);
-          return false;
+            this.logger.error(`Room not found: ${roomId}`);
+            return null;
         }
         
-        this.logger.info(`Playing sound ${sound.name} in room ${targetRoomId} (${room.name})`);
+        // Look for Element Call widgets in room state
+        const widgetEvents = room.currentState.getStateEvents('m.widget');
+        if (!widgetEvents || widgetEvents.length === 0) {
+            this.logger.info(`No widget events found in room ${roomId}`);
+            return null;
+        }
         
-        // For now, we're just simulating playing the sound
-        // In a real implementation, this would use WebRTC to play the audio
+        // Find Element Call widget by URL pattern
+        for (const event of widgetEvents) {
+            const content = event.getContent();
+            if (content?.url?.includes('element.io/call/')) {
+                this.logger.info(`Found Element Call widget: ${content.url}`);
+                return {
+                    widgetId: event.getStateKey(),
+                    url: content.url,
+                    name: content.name || 'Element Call',
+                    data: content.data || {}
+                };
+            }
+        }
         
-        return {
-          success: true,
-          roomId: targetRoomId,
-          roomName: room.name
-        };
-      } catch (error) {
-        this.logger.error(`Error playing sound: ${error.message}`);
-        return false;
-      }
+        this.logger.info(`No Element Call widgets found in room ${roomId}`);
+        return null;
     }
-    
-    setVoiceRoom(roomId, type = 'manual') {
-      const room = this.client.getRoom(roomId);
-      if (!room) {
-        this.logger.error(`Room not found: ${roomId}`);
-        return false;
-      }
-      
-      this.voiceRooms.set(roomId, {
-        widgetType: type,
-        detected: new Date()
-      });
-      
-      this.logger.info(`Manually set voice room: ${room.name} (${roomId})`);
-      return true;
+
+    async joinCall(requestRoomId) {
+        try {
+            const room = this.client.getRoom(requestRoomId);
+            if (!room) {
+                this.logger.error(`Room not found: ${requestRoomId}`);
+                return false;
+            }
+
+            this.logger.info(`Attempting to join call in room: ${room.name} (${requestRoomId})`);
+            
+            // Get call widget - search both widget events and room state
+            let callWidget = await this.getCallWidgetInRoom(requestRoomId);
+            
+            // Fallback to checking room state directly
+            if (!callWidget) {
+                this.logger.info(`Checking room state for Element Call widget...`);
+                const widgetEvents = room.currentState.getStateEvents('m.widget');
+                const elementCallEvent = widgetEvents.find(e => 
+                    e.getContent()?.url?.includes('element.io/call/')
+                );
+                
+                if (elementCallEvent) {
+                    callWidget = {
+                        widgetId: elementCallEvent.getStateKey(),
+                        url: elementCallEvent.getContent().url,
+                        name: elementCallEvent.getContent().name || 'Element Call'
+                    };
+                }
+            }
+
+            // Store origin room ID for sound playback reference
+
+            if (!callWidget) {
+                // Check if room is detected as voice room by name
+                if (this.voiceRooms.has(requestRoomId)) {
+                    this.logger.warn(`No Element Call widget found in voice room ${requestRoomId}, but proceeding anyway`);
+                    
+                    // Simulate basic connection
+                    this.activeRooms.set(requestRoomId, {
+                        originRoomId: requestRoomId,
+                        joinedAt: new Date(),
+                        roomName: room.name,
+                        simulated: true
+                    });
+                    
+                    this.logger.info(`Simulated joining call in room ${requestRoomId}`);
+                    return true;
+                }
+                
+                this.logger.error(`No Element Call widget found in room ${requestRoomId}`);
+                return false;
+            }
+
+            // Extract LiveKit parameters from widget URL
+            const livekitParams = this.livekitClient.extractLiveKitParams(callWidget.url);
+            if (!livekitParams) {
+                this.logger.error(`Could not extract LiveKit parameters from widget URL`);
+                return false;
+            }
+            
+            // Get a LiveKit token
+            const botDisplayName = this.client.getUser(this.client.getUserId()).displayName || 'Soundboard Bot';
+            const token = await this.jwtService.getLiveKitToken(
+                this.client.getAccessToken(),
+                requestRoomId,
+                livekitParams.roomId
+            );
+            
+            if (!token) {
+                this.logger.error(`Could not get LiveKit token`);
+                return false;
+            }
+            
+            // Connect to the LiveKit room
+            const livekitRoom = await this.livekitClient.connectToRoom(
+                livekitParams.serverUrl,
+                token,
+                livekitParams.roomId
+            );
+            
+            if (!livekitRoom) {
+                this.logger.error(`Could not connect to LiveKit room`);
+                return false;
+            }
+            
+            // Mark this room as an active call
+            this.activeRooms.set(requestRoomId, {
+                callWidget,
+                livekitRoom,
+                livekitParams,
+                originRoomId: requestRoomId,
+                joinedAt: new Date(),
+                roomName: room.name
+            });
+            
+            this.logger.info(`Bot joined call in room ${requestRoomId} (${room.name})`);
+            return true;
+        } catch (error) {
+            this.logger.error(`Error joining call: ${error.message}`);
+            return false;
+        }
     }
-    
-    clearVoiceRoom(roomId) {
-      if (!this.voiceRooms.has(roomId)) {
-        return false;
-      }
-      
-      this.voiceRooms.delete(roomId);
-      
-      // If we're in a call in this room, leave it
-      if (this.activeRooms.has(roomId)) {
-        this.activeRooms.delete(roomId);
-      }
-      
-      return true;
+
+    async playSound(roomId, sound, mediaManager) {
+        try {
+            const roomDetails = this.activeRooms.get(roomId);
+            if (!roomDetails) {
+                this.logger.error(`No active call in room ${roomId}`);
+                return { success: false };
+            }
+
+            if (roomDetails.simulated) {
+                this.logger.info(`Simulated sound playback in ${roomId}: ${sound.name}`);
+                return { success: true, simulated: true };
+            }
+
+            const soundPath = sound.path;
+            const livekitRoomName = roomDetails.livekitParams.roomId;
+            
+            this.logger.info(`Attempting to play sound ${sound.name} in LiveKit room ${livekitRoomName}`);
+            const result = await this.livekitClient.playSound(livekitRoomName, soundPath);
+            
+            return { success: result };
+        } catch (error) {
+            this.logger.error(`Error playing sound: ${error.message}`);
+            return { success: false, error: error.message };
+        }
     }
-  }
-  
-  module.exports = { VoiceManager }; 
+}
+
+export { VoiceManager };

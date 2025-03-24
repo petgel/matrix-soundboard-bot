@@ -1,6 +1,6 @@
 // Media Manager for handling sound files
-const fs = require('fs').promises;
-const path = require('path');
+import { promises as fs } from 'fs';
+import path from 'path';
 
 class MediaManager {
   constructor(config, logger) {
@@ -94,4 +94,4 @@ class MediaManager {
   }
 }
 
-module.exports = { MediaManager };
+export { MediaManager };

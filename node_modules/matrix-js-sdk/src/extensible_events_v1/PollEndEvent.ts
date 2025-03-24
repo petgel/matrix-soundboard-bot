@@ -15,16 +15,16 @@ limitations under the License.
 */
 
 import {
-    ExtensibleEventType,
-    IPartialEvent,
+    type ExtensibleEventType,
+    type IPartialEvent,
     isEventTypeSame,
     M_TEXT,
     REFERENCE_RELATION,
-} from "../@types/extensible_events";
-import { M_POLL_END, PollEndEventContent } from "../@types/polls";
-import { ExtensibleEvent } from "./ExtensibleEvent";
-import { InvalidEventError } from "./InvalidEventError";
-import { MessageEvent } from "./MessageEvent";
+} from "../@types/extensible_events.ts";
+import { M_POLL_END, type PollEndEventContent } from "../@types/polls.ts";
+import { ExtensibleEvent } from "./ExtensibleEvent.ts";
+import { InvalidEventError } from "./InvalidEventError.ts";
+import { MessageEvent } from "./MessageEvent.ts";
 
 /**
  * Represents a poll end/closure event.

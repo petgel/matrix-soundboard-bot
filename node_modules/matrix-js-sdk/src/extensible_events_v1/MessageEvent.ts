@@ -14,21 +14,21 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Optional } from "matrix-events-sdk";
+import { type Optional } from "matrix-events-sdk";
 
-import { ExtensibleEvent } from "./ExtensibleEvent";
+import { ExtensibleEvent } from "./ExtensibleEvent.ts";
 import {
-    ExtensibleEventType,
-    IMessageRendering,
-    IPartialEvent,
+    type ExtensibleEventType,
+    type IMessageRendering,
+    type IPartialEvent,
     isEventTypeSame,
     M_HTML,
     M_MESSAGE,
-    ExtensibleAnyMessageEventContent,
+    type ExtensibleAnyMessageEventContent,
     M_TEXT,
-} from "../@types/extensible_events";
-import { isOptionalAString, isProvided } from "./utilities";
-import { InvalidEventError } from "./InvalidEventError";
+} from "../@types/extensible_events.ts";
+import { isOptionalAString, isProvided } from "./utilities.ts";
+import { InvalidEventError } from "./InvalidEventError.ts";
 
 /**
  * Represents a message event. Message events are the simplest form of event with
