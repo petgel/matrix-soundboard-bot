@@ -64,15 +64,26 @@ async function main() {
     await mediaManager.initialize();
     
     // Create and start the bot
-    const bot = new MatrixBot({
+    const botConfig = {
       ...config.matrix,
       mediaManager,
       logger
-    });
+    };
+    
+    if (!config.matrix.voiceRoomId) {
+      delete botConfig.voiceRoomId;
+    }
+
+    const bot = new MatrixBot(botConfig);
     
     await bot.start();
     
-    logger.info('Matrix Soundboard Bot started successfully');
+    // Get version from package.json
+    const packageJson = JSON.parse(fs.readFileSync('./package.json'));
+    logger.info(`Bot started successfully - Version ${packageJson.version}`, {
+      sanitized: true,
+      features: ['commands', 'voice', 'media']
+    });
     
     // Handle graceful shutdown
     process.on('SIGINT', async () => {

@@ -8,17 +8,20 @@ export class HelpCommand {
     const helpText = [
       "Available commands:",
       "!help - Show this help message",
-      "!ping - Check bot responsiveness",
+      "!ping - Check bot responsiveness", 
       "!rooms - List available voice rooms",
-      "!call [room] - Join a voice call",
-      "!hangup - Leave current call",
       "!sounds - List available sounds",
       "!play [sound] - Play a sound",
-      "!stop - Stop current sound",
-      "!voice - Voice room status",
-      "!status - Bot system status"
+      "!status - Bot system status",
+      "!leave - Make the bot leave the current voice room"
     ].join('\n');
 
-    await this.client.sendTextMessage(roomId, helpText);
+    const txnId = `help-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+    await this.client.sendEvent(roomId, 'm.room.message', {
+      body: helpText,
+      msgtype: 'm.text',
+      format: 'org.matrix.custom.html',
+      formatted_body: `<pre><code>${helpText}</code></pre>`
+    }, txnId);
   }
 }

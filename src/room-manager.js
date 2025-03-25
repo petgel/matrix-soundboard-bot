@@ -61,26 +61,50 @@ export class RoomManager {
 
   async handleRoomTimeline(event, room) {
     try {
-      if (event.getType() === 'm.room.message' && 
-          event.getSender() !== this.userId &&
-          event.getContent().msgtype === 'm.text') {
+      // Log every event
+      this.logger.info(`Received event: ${JSON.stringify(event)}`);
+
+      if (event?.getType() === 'm.room.message' && 
+          event?.getSender() !== this.userId &&
+          event?.getContent()?.msgtype === 'm.text') {
         
-        if (room && this.isRoomEncrypted(room)) return;
-        await this.commandHandler.handleCommand(room.roomId, event);
+        if (!room || this.isRoomEncrypted(room)) return;
+        await this.commandHandler.handleCommand(room?.roomId, event);
       }
 
-      if (event.getType() === 'm.widget') {
-        const content = event.getContent();
-        if (content?.url?.includes('element-call')) {
-          this.voiceManager.addVoiceRoom(room.roomId, {
-            widgetType: content.type,
-            url: content.url,
-            detected: new Date()
-          });
+      // Handle widget events with error protection
+      try {
+        if (event?.getType() === 'm.widget') {
+          const content = event.getContent();
+          this.logger.info(`Received m.widget event: ${JSON.stringify(content)}`);
+          if (content?.url?.includes('element-call') && content?.type) {
+            this.voiceManager.addVoiceRoom(room.roomId, {
+              widgetType: content.type, // Keep this, might still be useful
+              url: content.url,
+              detected: new Date()
+            });
+            this.logger.debug('Processed widget event', {
+              roomId: room.roomId,
+              widgetType: content.type,
+              url: content.url
+            });
+          }
         }
+      } catch (error) {
+        this.logger.error('Failed to process widget event', {
+          error: error.message,
+          eventType: event?.getType(),
+          roomId: room?.roomId
+        });
       }
     } catch (error) {
-      this.logger.error(`Event error: ${error.message}`);
+      this.logger.error(`Event error: ${error?.message || 'Unknown error'}`, {
+        eventType: event?.getType(),
+        roomId: room?.roomId,
+        hasRoom: !!room,
+        hasEvent: !!event,
+        stack: error?.stack
+      });
     }
   }
 
@@ -90,7 +114,7 @@ export class RoomManager {
       const rooms = this.client.getRooms();
       rooms.forEach(room => {
         const encrypted = this.isRoomEncrypted(room) ? "ENCRYPTED" : "unencrypted";
-        this.logger.info(`Room: ${room.name} (${encrypted})`);
+        this.logger.info(`Room: ${room?.name || 'unnamed-room'} (${encrypted})`);
         this.voiceManager.detectVoiceRoom(room);
       });
       

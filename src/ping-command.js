@@ -4,6 +4,12 @@ export class PingCommand {
   }
 
   async execute(roomId, event) {
-    await this.client.sendTextMessage(roomId, "Pong!", 'm.text');
+    const txnId = `ping-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+    await this.client.sendEvent(roomId, 'm.room.message', {
+      body: 'Pong! 🏓',
+      msgtype: 'm.text',
+      format: 'org.matrix.custom.html',
+      formatted_body: '<strong>Pong!</strong> 🏓'
+    }, txnId);
   }
 }
