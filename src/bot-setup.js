@@ -54,8 +54,7 @@ export class BotSetup {
     this.voiceManager = new VoiceManager(
       this.client, 
       this.config.logger, 
-      this.config.voiceRoomId,
-      this.config.mediaConfig
+      this.config.voiceRoomId
     );
     
     this.commandHandler = new CommandHandler({

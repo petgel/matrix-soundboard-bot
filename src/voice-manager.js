@@ -1,15 +1,13 @@
-import { LiveKitClient } from './livekit-client.js';
-import { ElementCallJwtService } from './element-call-jwt-service.js';
+import { ElementCallDetector } from './element-call-detector.js';
 
-class VoiceManager {
-    constructor(client, logger, voiceRoomId, mediaConfig) {
+export class VoiceManager {
+    constructor(client, logger, voiceRoomId) {
         this.client = client;
         this.logger = logger;
         this.voiceRoomId = voiceRoomId;
-        this.mediaConfig = mediaConfig;
-        this.livekitClient = new LiveKitClient();
-        this.jwtService = new ElementCallJwtService();
+        this.elementCallDetector = new ElementCallDetector(logger);
         this.activeCalls = new Map();
+        this.homeserverUrl = process.env.MATRIX_HOMESERVER_URL;
     }
 
     async getCallWidget(roomId) {
@@ -23,28 +21,45 @@ class VoiceManager {
             return null;
         }
 
-        // Check both widget event types and newer modular widgets
-        const widgetEvents = [
-            ...room.currentState.getStateEvents('m.widget'),
-            ...room.currentState.getStateEvents('im.vector.modular.widgets')
-        ];
+        // Check for widget events
+        const widgetEvents = room.currentState.getStateEvents('m.widget') || [];
+        const modularWidgetEvents = room.currentState.getStateEvents('im.vector.modular.widgets') || [];
+        const allWidgetEvents = [...widgetEvents, ...modularWidgetEvents];
 
-        // Find Element Call widget by URL pattern with broader matching
-        for (const event of widgetEvents) {
-            const content = event.getContent();
-            this.logger.info(`Widget event content: ${JSON.stringify(content)}`); // Log the content
-            const widgetUrl = content.url || content.data?.url;
+        // Find Element Call widget
+        for (const event of allWidgetEvents) {
+            try {
+                const content = event.getContent();
+                const widgetUrl = content.url || content.data?.url;
 
-            if (widgetUrl?.includes('element-call')) {
-                this.logger.info(`Found potential Element Call widget: ${widgetUrl}`);
+                if (widgetUrl && widgetUrl.includes('element-call')) {
+                    this.logger.info(`Found Element Call widget: ${widgetUrl}`);
+                    return {
+                        widgetId: event.getStateKey(),
+                        url: widgetUrl,
+                        name: content.name || 'Element Call',
+                        data: content.data || {}
+                    };
+                }
+            } catch (error) {
+                this.logger.error(`Error processing widget event: ${error.message}`);
+            }
+        }
+
+        // Check for MSC3401 call events
+        const callEvents = room.currentState.getStateEvents('org.matrix.msc3401.call') || [];
+        if (callEvents.length > 0) {
+            this.logger.info(`Found MSC3401 call event in room ${roomId}`);
+            const callEvent = callEvents[0];
+            const content = callEvent.getContent();
+            
+            if (content && content.focus && content.focus.url) {
                 return {
-                    widgetId: event.getStateKey(),
-                    url: widgetUrl,
-                    name: content.name || 'Element Call',
-                    data: content.data || {}
+                    widgetId: callEvent.getStateKey(),
+                    url: content.focus.url,
+                    name: 'Element Call',
+                    data: content
                 };
-            } else {
-              this.logger.info(`Non-Element Call widget found: ${widgetUrl}`);
             }
         }
 
@@ -54,17 +69,7 @@ class VoiceManager {
 
     async joinCall(roomId) {
         try {
-            // Force rejoin every time
-            // if (this.activeCalls.has(roomId)) {
-            //     return true; // Already joined
-            // }
-
             const room = this.client.getRoom(roomId);
-            if (!room) {
-                this.logger.error(`Room not found: ${roomId}`);
-                return false;
-            }
-
             if (!room) {
                 this.logger.error(`Room not found: ${roomId}`);
                 return false;
@@ -75,7 +80,8 @@ class VoiceManager {
                 return true;
             }
 
-            let callWidget;
+            // Find call widget with retries
+            let callWidget = null;
             for (let attempt = 1; attempt <= 3; attempt++) {
                 callWidget = await this.getCallWidget(roomId);
                 if (callWidget) break;
@@ -90,14 +96,22 @@ class VoiceManager {
             }
 
             // Extract LiveKit params from widget URL
-            const livekitParams = this.livekitClient.parseWidgetUrl(callWidget.url);
+            const livekitParams = this.elementCallDetector.parseWidgetUrl(callWidget.url);
             if (!livekitParams) {
                 this.logger.error('Failed to extract LiveKit parameters');
                 return false;
             }
 
+            // Get JWT service URL
+            const jwtServiceUrl = await this.elementCallDetector.getJwtServiceUrl(this.homeserverUrl);
+            if (!jwtServiceUrl) {
+                this.logger.error('Failed to discover JWT service URL');
+                return false;
+            }
+
             // Get JWT token for LiveKit
-            const token = await this.jwtService.getLiveKitToken(
+            const token = await this.elementCallDetector.getLiveKitToken(
+                jwtServiceUrl,
                 this.client.getAccessToken(),
                 roomId,
                 livekitParams.roomName
@@ -109,22 +123,25 @@ class VoiceManager {
             }
 
             // Connect to LiveKit
-            const connection = await this.livekitClient.connect(
+            const connection = await this.elementCallDetector.connectToLiveKit(
                 livekitParams.server,
                 token,
                 livekitParams.roomName
             );
 
             if (!connection) {
+                this.logger.error('Failed to connect to LiveKit');
                 return false;
             }
 
             this.activeCalls.set(roomId, {
                 connection,
+                livekitParams,
                 joinedAt: new Date(),
                 widget: callWidget
             });
 
+            this.logger.info(`Successfully joined call in room ${roomId}`);
             return true;
         } catch (error) {
             this.logger.error(`Join call failed: ${error.message}`);
@@ -137,69 +154,40 @@ class VoiceManager {
             this.logger.error('Client not initialized');
             return null;
         }
-        let attempt = 1;
-        const maxAttemptsNumber = Number(maxAttempts) || 3;
-        const baseDelay = Math.max(Number(delayMs) || 5000, 1000);
         
-        while (attempt <= maxAttemptsNumber) {
-            this.logger.info(`Scanning for voice rooms (attempt ${attempt}/${maxAttemptsNumber})`);
-            
-            const rooms = this.client.getRooms();
-            if (!rooms?.length) {
-                this.logger.info('No rooms available to scan');
-                await new Promise(resolve => setTimeout(resolve, baseDelay * attempt));
-                attempt++;
-                continue;
-            }
-
-            let foundVoiceRoom = false;
-
-            try {
-                if (!this.voiceRoomId) {
-                    this.logger.warn('No voice room ID configured.');
-                    return null;
-                }
-                const room = this.client.getRoom(this.voiceRoomId);
-
-                if (!room) {
-                  this.logger.warn(`Voice room not found ${this.voiceRoomId}`);
-                  return null;
-                }
-
-                // Add a delay before accessing room state
-                setTimeout(async () => {
-                    try {
-                        const stateEvents = room.currentState.getStateEvents();
-                        // this.logger.info(`All room state events for ${this.voiceRoomId}: ${JSON.stringify(stateEvents, null, 2)}`);
-
-                        const widget = await this.getCallWidget(this.voiceRoomId);
-                        if (widget && !this.activeCalls.has(this.voiceRoomId)) {
-                            this.logger.info(`Auto-detected voice room: ${this.voiceRoomId}`, {
-                                widgetUrl: widget.url,
-                                detectionMethod: 'widget_scan'
-                            });
-                            await this.joinCall(this.voiceRoomId);
-                            
-                        }
-                        
-                    } catch (error) {
-                        this.logger.error(`Error getting room state events: ${error.message}`);
-                    }
-                }, 1000); // 1-second delay
-
-            } catch (error) {
-                this.logger.error(`Error: ${error.message}`);
-            }
-
-            if (!foundVoiceRoom && attempt < maxAttemptsNumber) {
-                const retryDelay = baseDelay * attempt;
-                this.logger.info(`No voice rooms found. Retrying in ${retryDelay/1000} seconds...`);
-                await new Promise(resolve => setTimeout(resolve, retryDelay));
-            }
-
-            attempt++;
+        const rooms = this.client.getRooms();
+        if (!rooms?.length) {
+            this.logger.info('No rooms available to scan');
+            return null;
         }
-        this.logger.warn(`No voice-enabled rooms found after ${maxAttemptsNumber} attempts`);
+
+        // If voice room ID is configured, use that
+        if (this.voiceRoomId) {
+            const room = this.client.getRoom(this.voiceRoomId);
+            if (room) {
+                this.logger.info(`Using configured voice room: ${this.voiceRoomId}`);
+                const joined = await this.joinCall(this.voiceRoomId);
+                return joined ? this.voiceRoomId : null;
+            } else {
+                this.logger.warn(`Configured voice room ${this.voiceRoomId} not found`);
+            }
+        }
+
+        // Otherwise scan for voice rooms
+        for (const room of rooms) {
+            try {
+                const callWidget = await this.getCallWidget(room.roomId);
+                if (callWidget) {
+                    this.logger.info(`Auto-detected voice room: ${room.roomId}`);
+                    const joined = await this.joinCall(room.roomId);
+                    if (joined) return room.roomId;
+                }
+            } catch (error) {
+                this.logger.error(`Error scanning room ${room.roomId}: ${error.message}`);
+            }
+        }
+
+        this.logger.warn('No voice-enabled rooms found');
         return null;
     }
 
@@ -210,47 +198,53 @@ class VoiceManager {
                 throw new Error('Invalid or empty sound buffer');
             }
 
+            // Check if we're in a call
+            if (!this.activeCalls.has(roomId)) {
+                // Try to join call
+                const joined = await this.joinCall(roomId);
+                if (!joined) {
+                    throw new Error('Not in active call');
+                }
+            }
+
             const callData = this.activeCalls.get(roomId);
-            if (!callData) {
-                throw new Error('Not in active call');
-            }
+            
+            // Play through Element Call detector
+            const result = await this.elementCallDetector.playAudioBuffer(
+                callData.livekitParams.roomName,
+                soundBuffer
+            );
 
-            // Convert buffer to audio stream
-            const audioStream = await this.livekitClient.bufferToStream(soundBuffer);
-            if (!audioStream) {
-                throw new Error('Failed to convert buffer to audio stream');
-            }
-
-            // Play through LiveKit with timeout
-            const result = await Promise.race([
-                callData.connection.playAudio(audioStream),
-                new Promise((_, reject) => 
-                    setTimeout(() => reject(new Error('Playback timed out')), 10000)
-                )
-            ]);
-
-            return result ? {
-                success: true,
-                duration: result.duration,
-                bytesProcessed: soundBuffer.length
-            } : {
+            return result || {
                 success: false,
-                error: 'Unknown error during playback',
-                stack: 'No stack available'
+                error: 'Failed to play sound'
             };
         } catch (error) {
-            this.logger.error(`Play sound failed: ${error.message}`, {
-                roomId,
-                bufferLength: soundBuffer?.length || 0,
-                inCall: this.activeCalls.has(roomId)
-            });
+            this.logger.error(`Play sound failed: ${error.message}`);
             return {
                 success: false,
-                error: error.message,
-                stack: error.stack
+                error: error.message
             };
         }
     }
-}
 
-export { VoiceManager };
+    leaveCall(roomId) {
+        try {
+            const callData = this.activeCalls.get(roomId);
+            if (!callData) {
+                return { success: false, error: 'Not in a call' };
+            }
+
+            if (callData.livekitParams && callData.livekitParams.roomName) {
+                this.elementCallDetector.disconnect(callData.livekitParams.roomName);
+            }
+
+            this.activeCalls.delete(roomId);
+            this.logger.info(`Left call in room ${roomId}`);
+            return { success: true };
+        } catch (error) {
+            this.logger.error(`Error leaving call: ${error.message}`);
+            return { success: false, error: error.message };
+        }
+    }
+}

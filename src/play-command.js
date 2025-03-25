@@ -20,18 +20,29 @@ export class PlayCommand {
       return;
     }
 
+    this.logger.info(`Attempting to play sound: ${soundName}`);
+
     try {
+      // First attempt to join call if not already in one
+      const inCall = this.voiceManager.activeCalls.has(roomId);
+      if (!inCall) {
+        this.logger.info(`Not in call, attempting to join call for room ${roomId}`);
+        const joined = await this.voiceManager.joinCall(roomId);
+        
+        if (!joined) {
+          await this.client.sendTextMessage(roomId, `Not in active call - could not auto-join`, `${baseTxnId}-2`);
+          return;
+        }
+      }
+
       // Use media manager to find sound with proper extension handling
       const sound = await this.mediaManager.getSound(soundName);
       if (!sound) {
-        await this.client.sendTextMessage(roomId, `Sound not found: ${soundName}`, `${baseTxnId}-2`);
+        await this.client.sendTextMessage(roomId, `Sound not found: ${soundName}`, `${baseTxnId}-3`);
         return;
       }
 
-      if (!this.voiceManager.activeCalls.has(roomId)) {
-        await this.client.sendTextMessage(roomId, `Not in active call`, `${baseTxnId}-2`);
-        return;
-      }
+      this.logger.info(`Found sound file: ${sound.path}`);
 
       // Read sound file into buffer using validated path from media manager
       const soundBuffer = await fs.readFile(sound.path);
@@ -43,7 +54,7 @@ export class PlayCommand {
 
       // Validate sound buffer before attempting playback
       if (!soundBuffer?.length) {
-        await this.client.sendTextMessage(roomId, `Sound file "${soundName}" is empty or corrupted`, `${baseTxnId}-3`);
+        await this.client.sendTextMessage(roomId, `Sound file "${soundName}" is empty or corrupted`, `${baseTxnId}-4`);
         return;
       }
 
@@ -51,17 +62,17 @@ export class PlayCommand {
       const result = await this.voiceManager.playSound(roomId, soundBuffer);
       
       if (!result) {
-        await this.client.sendTextMessage(roomId, `❌ Failed to play sound: No response from voice system`, `${baseTxnId}-4`);
+        await this.client.sendTextMessage(roomId, `❌ Failed to play sound: No response from voice system`, `${baseTxnId}-5`);
         return;
       }
 
       if (result.success) {
-        await this.client.sendTextMessage(roomId, `🔊 Playing "${soundName}" (${Math.round(result.duration/1000)}s)`, `${baseTxnId}-5`);
+        await this.client.sendTextMessage(roomId, `🔊 Playing "${soundName}"`, `${baseTxnId}-6`);
       } else {
-      const errorMessage = result?.error 
-          ? `${result.error.message || result.error}` 
-          : 'Unknown error';
-        await this.client.sendTextMessage(roomId, `❌ Failed to play sound: ${errorMessage}`, `${baseTxnId}-6`);
+        const errorMessage = result?.error 
+            ? `${result.error.message || result.error}` 
+            : 'Unknown error';
+        await this.client.sendTextMessage(roomId, `❌ Failed to play sound: ${errorMessage}`, `${baseTxnId}-7`);
       }
     } catch (error) {
       this.logger.error(`Error playing sound`, {
@@ -78,7 +89,7 @@ export class PlayCommand {
       await this.client.sendTextMessage(
         roomId, 
         errorMsg, 
-        `${baseTxnId}-5`
+        `${baseTxnId}-8`
       );
     }
   }

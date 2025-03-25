@@ -1,3 +1,4 @@
+// src/room-manager.js
 export class RoomManager {
   constructor(client, logger, voiceManager, commandHandler, userId) {
     this.client = client;
@@ -19,109 +20,182 @@ export class RoomManager {
     }
     
     const rooms = this.client.getRooms();
+    this.logger.info(`Processing ${rooms.length} existing rooms`);
+    
     rooms.forEach(room => {
       if (!this.isRoomEncrypted(room)) {
-        this.voiceManager.detectVoiceRoom(room);
-        if (room.name.toLowerCase().includes('sound')) {
-          this.logger.info(`Setting sound room: ${room.name} (${room.roomId})`);
-          this.voiceManager.setVoiceRoom(room.roomId, 'name-based');
-        }
+        this.logger.info(`Checking room for voice capabilities: ${room.name || 'unnamed'} (${room.roomId})`);
+        
+        // Check for voice capabilities
+        setTimeout(() => {
+          this.voiceManager.getCallWidget(room.roomId).then(widget => {
+            if (widget) {
+              this.logger.info(`Found voice widget in room: ${room.name || 'unnamed'} (${room.roomId})`);
+              
+              // Don't auto-join all rooms, instead just identify them
+              // this.voiceManager.joinCall(room.roomId);
+            }
+          }).catch(err => {
+            this.logger.error(`Error checking room for widgets: ${err.message}`);
+          });
+        }, 1000);
+      } else {
+        this.logger.info(`Skipping encrypted room: ${room.name || 'unnamed'} (${room.roomId})`);
       }
     });
+    
+    // Schedule voice room detection after initial processing
+    setTimeout(() => this.detectVoiceRooms(), 5000);
+  }
+
+  async detectVoiceRooms() {
+    const rooms = this.client.getRooms();
+    this.logger.info(`Scanning ${rooms.length} rooms for voice capabilities`);
+    
+    for (const room of rooms) {
+      try {
+        if (this.isRoomEncrypted(room)) continue;
+        
+        const callWidget = await this.voiceManager.getCallWidget(room.roomId);
+        if (callWidget) {
+          this.logger.info(`Detected voice room: ${room.name || 'unnamed'} (${room.roomId})`);
+          
+          // Don't auto-join, just identify
+          // Uncomment to auto-join if needed
+          /*
+          this.voiceManager.joinCall(room.roomId).catch(err => {
+            this.logger.error(`Failed to join call in ${room.roomId}: ${err.message}`);
+          });
+          */
+        }
+      } catch (error) {
+        this.logger.error(`Error checking room ${room.roomId}: ${error.message}`);
+      }
+    }
   }
 
   async handleRoomMembership(event, member) {
     if (member.userId === this.userId && member.membership === 'invite') {
-      this.logger.info(`Joining room ${member.roomId}`);
+      this.logger.info(`Received invite to room ${member.roomId}`);
       try {
         await this.client.joinRoom(member.roomId);
+        this.logger.info(`Successfully joined room ${member.roomId}`);
+        
         setTimeout(async () => {
           const room = this.client.getRoom(member.roomId);
-          if (room && this.isRoomEncrypted(room)) return;
+          if (!room) {
+            this.logger.error(`Room not found after joining: ${member.roomId}`);
+            return;
+          }
+          
+          if (this.isRoomEncrypted(room)) {
+            this.logger.info(`Skipping encrypted room: ${room.name || 'unnamed'}`);
+            return;
+          }
           
           const me = room.getMember(this.userId);
-          if (me && me.powerLevel >= 100) {
-          await this.client.sendTextMessage(member.roomId, 
-            "Hello! I'm a soundboard bot. I need 'Power Level 100' to function properly. " +
-            "Please have a room admin run: !grant"
-          );
-          } else {
-            this.logger.warn(`Not sending greeting - insufficient power level (${me?.powerLevel || 0})`);
+          if (!me) {
+            this.logger.error(`Cannot find self in room ${member.roomId}`);
+            return;
           }
-          this.voiceManager.detectVoiceRoom(room);
-          if (room?.name.toLowerCase().includes('sound')) {
-            this.voiceManager.setVoiceRoom(room.roomId, 'auto');
+          
+          // Check power level before sending greeting
+          const powerLevel = me.powerLevel || 0;
+          if (powerLevel < 50) {
+            await this.client.sendTextMessage(member.roomId, 
+              "Hello! I'm a soundboard bot. I need 'Power Level 50+' to function properly. " +
+              "Please have a room admin run: !grant"
+            );
+            this.logger.info(`Sent greeting to room ${member.roomId} (power level: ${powerLevel})`);
+          }
+          
+          // Check for voice capabilities
+          const callWidget = await this.voiceManager.getCallWidget(member.roomId);
+          if (callWidget) {
+            this.logger.info(`Found voice widget in room ${member.roomId}`);
+            this.client.sendTextMessage(member.roomId, 
+              "I detected that this room has voice capabilities. Use !play [sound] to play sounds in the call."
+            );
           }
         }, 2000);
       } catch (error) {
-        this.logger.error(`Join error: ${error.message}`);
+        this.logger.error(`Failed to join room ${member.roomId}: ${error.message}`);
       }
     }
   }
 
   async handleRoomTimeline(event, room) {
     try {
-      // Log every event
-      this.logger.info(`Received event: ${JSON.stringify(event)}`);
-
+      // Only process message events from others
       if (event?.getType() === 'm.room.message' && 
           event?.getSender() !== this.userId &&
           event?.getContent()?.msgtype === 'm.text') {
         
-        if (!room || this.isRoomEncrypted(room)) return;
-        await this.commandHandler.handleCommand(room?.roomId, event);
+        if (!room) {
+          this.logger.error('Received event with no room reference');
+          return;
+        }
+        
+        if (this.isRoomEncrypted(room)) {
+          this.logger.debug(`Ignoring message in encrypted room: ${room.roomId}`);
+          return;
+        }
+        
+        await this.commandHandler.handleCommand(room.roomId, event);
       }
 
-      // Handle widget events with error protection
-      try {
-        if (event?.getType() === 'm.widget') {
+      // Process widget events to detect voice rooms
+      if (event?.getType() === 'm.widget' || event?.getType() === 'im.vector.modular.widgets') {
+        try {
           const content = event.getContent();
-          this.logger.info(`Received m.widget event: ${JSON.stringify(content)}`);
-          if (content?.url?.includes('element-call') && content?.type) {
-            this.voiceManager.addVoiceRoom(room.roomId, {
-              widgetType: content.type, // Keep this, might still be useful
-              url: content.url,
-              detected: new Date()
-            });
-            this.logger.debug('Processed widget event', {
-              roomId: room.roomId,
-              widgetType: content.type,
-              url: content.url
-            });
+          if (content?.url?.includes('element-call')) {
+            this.logger.info(`Detected Element Call widget in room ${room.roomId}`);
+            
+            // Don't auto-join on widget detection, but log it
+            // this.voiceManager.joinCall(room.roomId);
           }
+        } catch (widgetError) {
+          this.logger.error(`Error processing widget event: ${widgetError.message}`);
         }
-      } catch (error) {
-        this.logger.error('Failed to process widget event', {
-          error: error.message,
-          eventType: event?.getType(),
-          roomId: room?.roomId
-        });
+      }
+      
+      // Process MSC3401 call events
+      if (event?.getType() === 'org.matrix.msc3401.call') {
+        try {
+          this.logger.info(`Detected MSC3401 call event in room ${room.roomId}`);
+          const content = event.getContent();
+          if (content?.focus?.url) {
+            this.logger.info(`Found call URL: ${content.focus.url}`);
+            
+            // Don't auto-join on call detection, but log it
+            // this.voiceManager.joinCall(room.roomId);
+          }
+        } catch (callError) {
+          this.logger.error(`Error processing call event: ${callError.message}`);
+        }
       }
     } catch (error) {
-      this.logger.error(`Event error: ${error?.message || 'Unknown error'}`, {
-        eventType: event?.getType(),
+      this.logger.error(`Error handling room timeline event: ${error.message}`, {
         roomId: room?.roomId,
-        hasRoom: !!room,
-        hasEvent: !!event,
-        stack: error?.stack
+        eventType: event?.getType(),
+        stack: error.stack
       });
     }
   }
 
   handleSync(state, prevState, data) {
-    if (state === 'PREPARED') {
-      this.logger.info('Sync completed');
-      const rooms = this.client.getRooms();
-      rooms.forEach(room => {
-        const encrypted = this.isRoomEncrypted(room) ? "ENCRYPTED" : "unencrypted";
-        this.logger.info(`Room: ${room?.name || 'unnamed-room'} (${encrypted})`);
-        this.voiceManager.detectVoiceRoom(room);
-      });
+    if (state === 'PREPARED' && prevState !== 'PREPARED') {
+      this.logger.info('Initial sync completed');
       
-      const voiceRooms = this.voiceManager.getVoiceRooms();
-      if (voiceRooms.size > 0) {
-        this.logger.info(`Voice rooms: ${voiceRooms.size}`);
-      }
+      // Process existing rooms after sync is ready
+      setTimeout(() => {
+        this.processExistingRooms();
+      }, 2000);
+    }
+    
+    // Log other sync state changes
+    if (state !== prevState) {
+      this.logger.info(`Sync state changed: ${prevState} -> ${state}`);
     }
   }
 }
