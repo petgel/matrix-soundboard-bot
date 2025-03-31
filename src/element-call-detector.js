@@ -1,3 +1,4 @@
+// src/element-call-detector.js
 import { Room, RoomEvent, LocalTrack, AudioPresets } from 'livekit-client';
 import axios from 'axios';
 
@@ -46,19 +47,45 @@ export class ElementCallDetector {
 
   parseWidgetUrl(widgetUrl) {
     try {
+      // If no widget URL provided, use a default based on the room ID
+      if (!widgetUrl) {
+        return {
+            roomName: null,
+            roomId: null,
+            server: 'https://call.element.io'
+        };
+      }
+
       const url = new URL(widgetUrl);
-      // Remove leading # from fragment and parse as URLSearchParams
-      const fragment = url.hash.substring(1);
-      const params = new URLSearchParams(fragment);
       
+      // Handle fragment format (Element Call)
+      if (url.hash) {
+          // Remove leading # from fragment and parse as URLSearchParams
+          const fragment = url.hash.substring(1);
+          const params = new URLSearchParams(fragment);
+          
+          return {
+              roomName: params.get('roomName') || params.get('r'),
+              roomId: params.get('roomId'),
+              server: `${url.protocol}//${url.host}`
+          };
+      } 
+      
+      // Handle query parameters (older format)
+      const params = new URLSearchParams(url.search);
       return {
-        roomName: params.get('roomName') || params.get('r'),
-        roomId: params.get('roomId'),
-        server: `${url.protocol}//${url.host}`
+          roomName: params.get('roomName') || params.get('r'),
+          roomId: params.get('roomId'),
+          server: `${url.protocol}//${url.host}`
       };
     } catch (error) {
       this.logger.error(`Error parsing widget URL: ${error.message}`);
-      return null;
+      // Return default values as fallback
+      return {
+          roomName: null,
+          roomId: null,
+          server: 'https://call.element.io'
+      };
     }
   }
 

@@ -1,3 +1,4 @@
+// src/help-command.js
 export class HelpCommand {
   constructor(bot) {
     this.bot = bot;
@@ -12,8 +13,11 @@ export class HelpCommand {
       "!rooms - List available voice rooms",
       "!sounds - List available sounds",
       "!play [sound] - Play a sound",
+      "!widgets - List widgets in this room",
+      "!call-info - Show information about call events in this room",
       "!status - Bot system status",
-      "!leave - Make the bot leave the current voice room"
+      "!leave - Make the bot leave the current voice room",
+      "!grant - Give the bot permission (admin only)"
     ].join('\n');
 
     const txnId = `help-${Date.now()}-${Math.floor(Math.random() * 1000)}`;

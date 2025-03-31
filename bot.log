@@ -4309,3 +4309,296 @@ info: Identified command: !play with args: hallo {"timestamp":"2025-03-25T18:36:
 info: Received event: {"type":"m.room.message","content":{"msgtype":"m.text","body":"Not in active call"},"event_id":"~!xJAIifipTNQLmAUqCw:my.matrix.host:play-1742927774819-2","user_id":"@soundboard:my.matrix.host","sender":"@soundboard:my.matrix.host","room_id":"!xJAIifipTNQLmAUqCw:my.matrix.host","origin_server_ts":1742927774820} {"timestamp":"2025-03-25T18:36:14.820Z"}
 info: Received event: {"type":"m.room.message","sender":"@soundboard:my.matrix.host","content":{"msgtype":"m.text","body":"Not in active call"},"origin_server_ts":1742927691903,"unsigned":{"membership":"join","age":82918,"transaction_id":"play-1742927691897-2"},"event_id":"$Q4O6y3yEjj3ww8NnPLiV1TP1avK2tfQAhP2SzOYtNpo","room_id":"!xJAIifipTNQLmAUqCw:my.matrix.host"} {"timestamp":"2025-03-25T18:36:14.823Z"}
 info: Shutting down bot... {"timestamp":"2025-03-25T18:40:32.173Z"}
+info: Homeserver URL: http://localhost:8008 {"timestamp":"2025-03-31T14:14:49.391Z"}
+info: User ID: @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:14:49.394Z"}
+info: Access token available: Yes {"timestamp":"2025-03-31T14:14:49.394Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-31T14:14:49.394Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-31T14:14:49.397Z"}
+info: Found 3 sound files {"timestamp":"2025-03-31T14:14:49.397Z"}
+info: Creating client with homeserver: http://localhost:8008 {"timestamp":"2025-03-31T14:14:49.398Z"}
+info: Matrix bot connected as @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:14:49.588Z"}
+info: Processing 5 existing rooms {"timestamp":"2025-03-31T14:14:49.588Z"}
+info: Checking room for voice capabilities: SenZaII (!OuCanGlDHedNoMOlGc:my.matrix.host) {"timestamp":"2025-03-31T14:14:49.589Z"}
+info: Checking room for voice capabilities: Audio (!KmSRSxjJLoaATYRlYO:my.matrix.host) {"timestamp":"2025-03-31T14:14:49.589Z"}
+info: Skipping encrypted room: Videoroom (!mltdVcgreGrpBLirVX:my.matrix.host) {"timestamp":"2025-03-31T14:14:49.589Z"}
+info: Checking room for voice capabilities: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:14:49.589Z"}
+info: Checking room for voice capabilities: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:14:49.589Z"}
+info: Bot started successfully - Version 1.0.0 {"features":["commands","voice","media"],"sanitized":true,"timestamp":"2025-03-31T14:14:49.591Z"}
+info: No Element Call widgets found in room !OuCanGlDHedNoMOlGc:my.matrix.host {"timestamp":"2025-03-31T14:14:50.599Z"}
+info: No Element Call widgets found in room !KmSRSxjJLoaATYRlYO:my.matrix.host {"timestamp":"2025-03-31T14:14:50.599Z"}
+info: No Element Call widgets found in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:14:50.599Z"}
+info: No Element Call widgets found in room !xJAIifipTNQLmAUqCw:my.matrix.host {"timestamp":"2025-03-31T14:14:50.600Z"}
+info: Scanning 5 rooms for voice capabilities {"timestamp":"2025-03-31T14:14:54.596Z"}
+info: No Element Call widgets found in room !OuCanGlDHedNoMOlGc:my.matrix.host {"timestamp":"2025-03-31T14:14:54.596Z"}
+info: No Element Call widgets found in room !KmSRSxjJLoaATYRlYO:my.matrix.host {"timestamp":"2025-03-31T14:14:54.596Z"}
+info: No Element Call widgets found in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:14:54.596Z"}
+info: No Element Call widgets found in room !xJAIifipTNQLmAUqCw:my.matrix.host {"timestamp":"2025-03-31T14:14:54.596Z"}
+info: Shutting down bot... {"timestamp":"2025-03-31T14:16:21.166Z"}
+info: Homeserver URL: http://localhost:8008 {"timestamp":"2025-03-31T14:18:24.339Z"}
+info: User ID: @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:18:24.341Z"}
+info: Access token available: Yes {"timestamp":"2025-03-31T14:18:24.342Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-31T14:18:24.342Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-31T14:18:24.344Z"}
+info: Found 3 sound files {"timestamp":"2025-03-31T14:18:24.345Z"}
+info: Creating client with homeserver: http://localhost:8008 {"timestamp":"2025-03-31T14:18:24.345Z"}
+info: Matrix bot connected as @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:18:24.466Z"}
+info: Processing 5 existing rooms {"timestamp":"2025-03-31T14:18:24.467Z"}
+info: Checking room for voice capabilities: Audio (!KmSRSxjJLoaATYRlYO:my.matrix.host) {"timestamp":"2025-03-31T14:18:24.467Z"}
+info: Checking room for voice capabilities: SenZaII (!OuCanGlDHedNoMOlGc:my.matrix.host) {"timestamp":"2025-03-31T14:18:24.467Z"}
+info: Checking room for voice capabilities: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:18:24.467Z"}
+info: Checking room for voice capabilities: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:18:24.467Z"}
+info: Skipping encrypted room: Videoroom (!mltdVcgreGrpBLirVX:my.matrix.host) {"timestamp":"2025-03-31T14:18:24.468Z"}
+info: Bot started successfully - Version 1.0.0 {"features":["commands","voice","media"],"sanitized":true,"timestamp":"2025-03-31T14:18:24.469Z"}
+info: No Element Call widgets found in room !KmSRSxjJLoaATYRlYO:my.matrix.host {"timestamp":"2025-03-31T14:18:25.478Z"}
+info: No Element Call widgets found in room !OuCanGlDHedNoMOlGc:my.matrix.host {"timestamp":"2025-03-31T14:18:25.479Z"}
+info: No Element Call widgets found in room !xJAIifipTNQLmAUqCw:my.matrix.host {"timestamp":"2025-03-31T14:18:25.479Z"}
+info: No Element Call widgets found in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:18:25.479Z"}
+info: Scanning 5 rooms for voice capabilities {"timestamp":"2025-03-31T14:18:29.468Z"}
+info: No Element Call widgets found in room !KmSRSxjJLoaATYRlYO:my.matrix.host {"timestamp":"2025-03-31T14:18:29.469Z"}
+info: No Element Call widgets found in room !OuCanGlDHedNoMOlGc:my.matrix.host {"timestamp":"2025-03-31T14:18:29.469Z"}
+info: No Element Call widgets found in room !xJAIifipTNQLmAUqCw:my.matrix.host {"timestamp":"2025-03-31T14:18:29.469Z"}
+info: No Element Call widgets found in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:18:29.469Z"}
+info: Homeserver URL: http://localhost:8008 {"timestamp":"2025-03-31T14:19:35.353Z"}
+info: User ID: @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:19:35.355Z"}
+info: Access token available: Yes {"timestamp":"2025-03-31T14:19:35.356Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-31T14:19:35.356Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-31T14:19:35.359Z"}
+info: Found 3 sound files {"timestamp":"2025-03-31T14:19:35.360Z"}
+info: Creating client with homeserver: http://localhost:8008 {"timestamp":"2025-03-31T14:19:35.360Z"}
+info: Matrix bot connected as @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:19:35.449Z"}
+info: Processing 5 existing rooms {"timestamp":"2025-03-31T14:19:35.450Z"}
+info: Checking room for voice capabilities: Audio (!KmSRSxjJLoaATYRlYO:my.matrix.host) {"timestamp":"2025-03-31T14:19:35.450Z"}
+info: Checking room for voice capabilities: SenZaII (!OuCanGlDHedNoMOlGc:my.matrix.host) {"timestamp":"2025-03-31T14:19:35.450Z"}
+info: Checking room for voice capabilities: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:19:35.451Z"}
+info: Checking room for voice capabilities: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:19:35.451Z"}
+info: Skipping encrypted room: Videoroom (!mltdVcgreGrpBLirVX:my.matrix.host) {"timestamp":"2025-03-31T14:19:35.451Z"}
+info: Bot started successfully - Version 1.0.0 {"features":["commands","voice","media"],"sanitized":true,"timestamp":"2025-03-31T14:19:35.452Z"}
+info: No Element Call widgets found in room !KmSRSxjJLoaATYRlYO:my.matrix.host {"timestamp":"2025-03-31T14:19:36.452Z"}
+info: No Element Call widgets found in room !OuCanGlDHedNoMOlGc:my.matrix.host {"timestamp":"2025-03-31T14:19:36.452Z"}
+info: No Element Call widgets found in room !xJAIifipTNQLmAUqCw:my.matrix.host {"timestamp":"2025-03-31T14:19:36.452Z"}
+info: No Element Call widgets found in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:19:36.452Z"}
+info: Shutting down bot... {"timestamp":"2025-03-31T14:19:37.574Z"}
+info: Homeserver URL: http://localhost:8008 {"timestamp":"2025-03-31T14:19:40.522Z"}
+info: User ID: @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:19:40.524Z"}
+info: Access token available: Yes {"timestamp":"2025-03-31T14:19:40.524Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-31T14:19:40.525Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-31T14:19:40.527Z"}
+info: Found 3 sound files {"timestamp":"2025-03-31T14:19:40.528Z"}
+info: Creating client with homeserver: http://localhost:8008 {"timestamp":"2025-03-31T14:19:40.528Z"}
+info: Matrix bot connected as @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:19:40.612Z"}
+info: Processing 5 existing rooms {"timestamp":"2025-03-31T14:19:40.613Z"}
+info: Checking room for voice capabilities: Audio (!KmSRSxjJLoaATYRlYO:my.matrix.host) {"timestamp":"2025-03-31T14:19:40.613Z"}
+info: Checking room for voice capabilities: SenZaII (!OuCanGlDHedNoMOlGc:my.matrix.host) {"timestamp":"2025-03-31T14:19:40.613Z"}
+info: Checking room for voice capabilities: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:19:40.613Z"}
+info: Checking room for voice capabilities: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:19:40.614Z"}
+info: Skipping encrypted room: Videoroom (!mltdVcgreGrpBLirVX:my.matrix.host) {"timestamp":"2025-03-31T14:19:40.614Z"}
+info: Bot started successfully - Version 1.0.0 {"features":["commands","voice","media"],"sanitized":true,"timestamp":"2025-03-31T14:19:40.615Z"}
+info: No Element Call widgets found in room !KmSRSxjJLoaATYRlYO:my.matrix.host {"timestamp":"2025-03-31T14:19:41.623Z"}
+info: No Element Call widgets found in room !OuCanGlDHedNoMOlGc:my.matrix.host {"timestamp":"2025-03-31T14:19:41.623Z"}
+info: No Element Call widgets found in room !xJAIifipTNQLmAUqCw:my.matrix.host {"timestamp":"2025-03-31T14:19:41.624Z"}
+info: No Element Call widgets found in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:19:41.624Z"}
+info: Scanning 5 rooms for voice capabilities {"timestamp":"2025-03-31T14:19:45.619Z"}
+info: No Element Call widgets found in room !KmSRSxjJLoaATYRlYO:my.matrix.host {"timestamp":"2025-03-31T14:19:45.619Z"}
+info: No Element Call widgets found in room !OuCanGlDHedNoMOlGc:my.matrix.host {"timestamp":"2025-03-31T14:19:45.619Z"}
+info: No Element Call widgets found in room !xJAIifipTNQLmAUqCw:my.matrix.host {"timestamp":"2025-03-31T14:19:45.620Z"}
+info: No Element Call widgets found in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:19:45.620Z"}
+info: Chat message received {"args":[],"command":"help","content":"!help","messageType":"command","rawCommand":"!help","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:19:52.235Z"}
+info: Identified command: !help with args:  {"timestamp":"2025-03-31T14:19:52.236Z"}
+info: Chat message received {"args":[],"command":"help","content":"!help","messageType":"command","rawCommand":"!help","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:19:57.702Z"}
+info: Identified command: !help with args:  {"timestamp":"2025-03-31T14:19:57.702Z"}
+info: Chat message received {"args":[],"command":"widgets","content":"!widgets","messageType":"command","rawCommand":"!widgets","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:20:14.410Z"}
+info: Identified command: !widgets with args:  {"timestamp":"2025-03-31T14:20:14.410Z"}
+info: Chat message received {"args":[],"command":"create-call","content":"!create-call","messageType":"command","rawCommand":"!create-call","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:20:21.606Z"}
+info: Identified command: !create-call with args:  {"timestamp":"2025-03-31T14:20:21.606Z"}
+info: Creating voice call widget in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:20:21.607Z"}
+error: Error creating voice call widget: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (50) (http://localhost:8008/_matrix/client/v3/rooms/!aaKSnWahloLOKFIQwR%3Amy.matrix.host/state/m.widget/element-call-1743430821607) {"timestamp":"2025-03-31T14:20:21.624Z"}
+info: Chat message received {"args":["hallo"],"command":"play","content":"!play hallo","messageType":"command","rawCommand":"!play hallo","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:20:39.832Z"}
+info: Identified command: !play with args: hallo {"timestamp":"2025-03-31T14:20:39.832Z"}
+info: Attempting to play sound: hallo {"timestamp":"2025-03-31T14:20:39.832Z"}
+info: Not in call, attempting to join call for room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:20:39.832Z"}
+info: No Element Call widgets found in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:20:39.833Z"}
+info: Call widget not found (attempt 1), retrying... {"timestamp":"2025-03-31T14:20:39.833Z"}
+info: No Element Call widgets found in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:20:40.847Z"}
+info: Call widget not found (attempt 2), retrying... {"timestamp":"2025-03-31T14:20:40.847Z"}
+info: No Element Call widgets found in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:20:42.857Z"}
+info: Call widget not found (attempt 3), retrying... {"timestamp":"2025-03-31T14:20:42.858Z"}
+error: No call widget found in !aaKSnWahloLOKFIQwR:my.matrix.host after 3 attempts {"timestamp":"2025-03-31T14:20:45.871Z"}
+info: Homeserver URL: http://localhost:8008 {"timestamp":"2025-03-31T14:23:38.039Z"}
+info: User ID: @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:23:38.042Z"}
+info: Access token available: Yes {"timestamp":"2025-03-31T14:23:38.042Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-31T14:23:38.042Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-31T14:23:38.046Z"}
+info: Found 3 sound files {"timestamp":"2025-03-31T14:23:38.047Z"}
+info: Creating client with homeserver: http://localhost:8008 {"timestamp":"2025-03-31T14:23:38.048Z"}
+info: Matrix bot connected as @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:23:38.157Z"}
+info: Processing 5 existing rooms {"timestamp":"2025-03-31T14:23:38.158Z"}
+info: Checking room for voice capabilities: Audio (!KmSRSxjJLoaATYRlYO:my.matrix.host) {"timestamp":"2025-03-31T14:23:38.158Z"}
+info: Checking room for voice capabilities: SenZaII (!OuCanGlDHedNoMOlGc:my.matrix.host) {"timestamp":"2025-03-31T14:23:38.158Z"}
+info: Skipping encrypted room: Videoroom (!mltdVcgreGrpBLirVX:my.matrix.host) {"timestamp":"2025-03-31T14:23:38.158Z"}
+info: Checking room for voice capabilities: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:23:38.158Z"}
+info: Checking room for voice capabilities: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:23:38.159Z"}
+info: Bot started successfully - Version 1.0.0 {"features":["commands","voice","media"],"sanitized":true,"timestamp":"2025-03-31T14:23:38.160Z"}
+info: No Element Call widgets/events found in room !KmSRSxjJLoaATYRlYO:my.matrix.host {"timestamp":"2025-03-31T14:23:39.162Z"}
+info: No Element Call widgets/events found in room !OuCanGlDHedNoMOlGc:my.matrix.host {"timestamp":"2025-03-31T14:23:39.162Z"}
+info: Found MSC3401 call member events in room !xJAIifipTNQLmAUqCw:my.matrix.host {"timestamp":"2025-03-31T14:23:39.163Z"}
+info: Found voice widget in room: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:23:39.163Z"}
+info: Found MSC3401 call member events in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:23:39.163Z"}
+info: Found voice widget in room: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:23:39.163Z"}
+info: Shutting down bot... {"timestamp":"2025-03-31T14:23:39.786Z"}
+info: Homeserver URL: http://localhost:8008 {"timestamp":"2025-03-31T14:26:10.692Z"}
+info: User ID: @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:26:10.694Z"}
+info: Access token available: Yes {"timestamp":"2025-03-31T14:26:10.695Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-31T14:26:10.695Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-31T14:26:10.697Z"}
+info: Found 3 sound files {"timestamp":"2025-03-31T14:26:10.698Z"}
+info: Creating client with homeserver: http://localhost:8008 {"timestamp":"2025-03-31T14:26:10.698Z"}
+info: Matrix bot connected as @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:26:10.812Z"}
+info: Processing 5 existing rooms {"timestamp":"2025-03-31T14:26:10.812Z"}
+info: Checking room for voice capabilities: Audio (!KmSRSxjJLoaATYRlYO:my.matrix.host) {"timestamp":"2025-03-31T14:26:10.813Z"}
+info: Checking room for voice capabilities: SenZaII (!OuCanGlDHedNoMOlGc:my.matrix.host) {"timestamp":"2025-03-31T14:26:10.813Z"}
+info: Checking room for voice capabilities: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:26:10.813Z"}
+info: Skipping encrypted room: Videoroom (!mltdVcgreGrpBLirVX:my.matrix.host) {"timestamp":"2025-03-31T14:26:10.813Z"}
+info: Checking room for voice capabilities: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:26:10.813Z"}
+info: Bot started successfully - Version 1.0.0 {"features":["commands","voice","media"],"sanitized":true,"timestamp":"2025-03-31T14:26:10.815Z"}
+info: No Element Call widgets/events found in room !KmSRSxjJLoaATYRlYO:my.matrix.host {"timestamp":"2025-03-31T14:26:11.826Z"}
+info: No Element Call widgets/events found in room !OuCanGlDHedNoMOlGc:my.matrix.host {"timestamp":"2025-03-31T14:26:11.826Z"}
+info: Found MSC3401 call member events in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:26:11.827Z"}
+info: Found voice widget in room: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:26:11.827Z"}
+info: Found MSC3401 call member events in room !xJAIifipTNQLmAUqCw:my.matrix.host {"timestamp":"2025-03-31T14:26:11.827Z"}
+info: Found voice widget in room: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:26:11.827Z"}
+info: Scanning 5 rooms for voice capabilities {"timestamp":"2025-03-31T14:26:15.821Z"}
+info: No Element Call widgets/events found in room !KmSRSxjJLoaATYRlYO:my.matrix.host {"timestamp":"2025-03-31T14:26:15.822Z"}
+info: No Element Call widgets/events found in room !OuCanGlDHedNoMOlGc:my.matrix.host {"timestamp":"2025-03-31T14:26:15.822Z"}
+info: Found MSC3401 call member events in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:26:15.822Z"}
+info: Detected voice room: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:26:15.822Z"}
+info: Found MSC3401 call member events in room !xJAIifipTNQLmAUqCw:my.matrix.host {"timestamp":"2025-03-31T14:26:15.822Z"}
+info: Detected voice room: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:26:15.822Z"}
+info: Chat message received {"args":[],"command":"widgets","content":"!widgets","messageType":"command","rawCommand":"!widgets","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:26:21.829Z"}
+info: Identified command: !widgets with args:  {"timestamp":"2025-03-31T14:26:21.829Z"}
+info: Chat message received {"args":[],"command":"create-call","content":"!create-call","messageType":"command","rawCommand":"!create-call","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:26:28.182Z"}
+info: Identified command: !create-call with args:  {"timestamp":"2025-03-31T14:26:28.183Z"}
+info: Creating voice call widget in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:26:28.183Z"}
+error: Error creating voice call widget: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (50) (http://localhost:8008/_matrix/client/v3/rooms/!aaKSnWahloLOKFIQwR%3Amy.matrix.host/state/m.widget/element-call-1743431188183) {"timestamp":"2025-03-31T14:26:28.200Z"}
+info: Shutting down bot... {"timestamp":"2025-03-31T14:26:34.878Z"}
+info: Homeserver URL: http://localhost:8008 {"timestamp":"2025-03-31T14:28:04.957Z"}
+info: User ID: @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:28:04.959Z"}
+info: Access token available: Yes {"timestamp":"2025-03-31T14:28:04.960Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-31T14:28:04.960Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-31T14:28:04.962Z"}
+info: Found 3 sound files {"timestamp":"2025-03-31T14:28:04.963Z"}
+info: Creating client with homeserver: http://localhost:8008 {"timestamp":"2025-03-31T14:28:04.963Z"}
+info: Matrix bot connected as @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:28:05.046Z"}
+info: Processing 5 existing rooms {"timestamp":"2025-03-31T14:28:05.047Z"}
+info: Checking room for voice capabilities: Audio (!KmSRSxjJLoaATYRlYO:my.matrix.host) {"timestamp":"2025-03-31T14:28:05.047Z"}
+info: Checking room for voice capabilities: SenZaII (!OuCanGlDHedNoMOlGc:my.matrix.host) {"timestamp":"2025-03-31T14:28:05.047Z"}
+info: Checking room for voice capabilities: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:28:05.047Z"}
+info: Skipping encrypted room: Videoroom (!mltdVcgreGrpBLirVX:my.matrix.host) {"timestamp":"2025-03-31T14:28:05.048Z"}
+info: Checking room for voice capabilities: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:28:05.048Z"}
+info: Bot started successfully - Version 1.0.0 {"features":["commands","voice","media"],"sanitized":true,"timestamp":"2025-03-31T14:28:05.049Z"}
+info: Chat message received {"args":[],"command":"widgets","content":"!widgets","messageType":"command","rawCommand":"!widgets","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:28:05.053Z"}
+info: Identified command: !widgets with args:  {"timestamp":"2025-03-31T14:28:05.053Z"}
+info: Chat message received {"args":[],"command":"create-call","content":"!create-call","messageType":"command","rawCommand":"!create-call","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:28:05.068Z"}
+info: Identified command: !create-call with args:  {"timestamp":"2025-03-31T14:28:05.068Z"}
+info: Creating voice call widget in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:28:05.068Z"}
+error: Error creating voice call widget: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (50) (http://localhost:8008/_matrix/client/v3/rooms/!aaKSnWahloLOKFIQwR%3Amy.matrix.host/state/m.widget/element-call-1743431285069) {"timestamp":"2025-03-31T14:28:05.091Z"}
+info: Chat message received {"args":["hallo"],"command":"play","content":"!play hallo","messageType":"command","rawCommand":"!play hallo","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:28:05.105Z"}
+info: Identified command: !play with args: hallo {"timestamp":"2025-03-31T14:28:05.105Z"}
+info: Attempting to play sound: hallo {"timestamp":"2025-03-31T14:28:05.105Z"}
+info: Not in call, attempting to join call for room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:28:05.105Z"}
+info: Found MSC3401 call member events in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:28:05.106Z"}
+info: Found MSC3401 call member in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:28:05.106Z"}
+error: Error discovering JWT service URL: Request failed with status code 404 {"timestamp":"2025-03-31T14:28:05.129Z"}
+error: Failed to discover JWT service URL {"timestamp":"2025-03-31T14:28:05.130Z"}
+info: No Element Call widgets/events found in room !KmSRSxjJLoaATYRlYO:my.matrix.host {"timestamp":"2025-03-31T14:28:06.057Z"}
+info: No Element Call widgets/events found in room !OuCanGlDHedNoMOlGc:my.matrix.host {"timestamp":"2025-03-31T14:28:06.057Z"}
+info: Found MSC3401 call member events in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:28:06.057Z"}
+info: Found voice widget in room: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:28:06.058Z"}
+info: Found MSC3401 call member events in room !xJAIifipTNQLmAUqCw:my.matrix.host {"timestamp":"2025-03-31T14:28:06.058Z"}
+info: Found voice widget in room: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:28:06.058Z"}
+info: Scanning 5 rooms for voice capabilities {"timestamp":"2025-03-31T14:28:10.052Z"}
+info: No Element Call widgets/events found in room !KmSRSxjJLoaATYRlYO:my.matrix.host {"timestamp":"2025-03-31T14:28:10.052Z"}
+info: No Element Call widgets/events found in room !OuCanGlDHedNoMOlGc:my.matrix.host {"timestamp":"2025-03-31T14:28:10.053Z"}
+info: Found MSC3401 call member events in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:28:10.053Z"}
+info: Detected voice room: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:28:10.053Z"}
+info: Found MSC3401 call member events in room !xJAIifipTNQLmAUqCw:my.matrix.host {"timestamp":"2025-03-31T14:28:10.053Z"}
+info: Detected voice room: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:28:10.053Z"}
+info: Chat message received {"args":[],"command":"widgets","content":"!widgets","messageType":"command","rawCommand":"!widgets","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:28:15.477Z"}
+info: Identified command: !widgets with args:  {"timestamp":"2025-03-31T14:28:15.477Z"}
+info: Chat message received {"args":[],"command":"create-call","content":"!create-call","messageType":"command","rawCommand":"!create-call","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:28:23.449Z"}
+info: Identified command: !create-call with args:  {"timestamp":"2025-03-31T14:28:23.449Z"}
+info: Creating voice call widget in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:28:23.449Z"}
+error: Error creating voice call widget: MatrixError: [403] You don't have permission to post that to the room. user_level (0) < send_level (50) (http://localhost:8008/_matrix/client/v3/rooms/!aaKSnWahloLOKFIQwR%3Amy.matrix.host/state/m.widget/element-call-1743431303449) {"timestamp":"2025-03-31T14:28:23.466Z"}
+info: Chat message received {"args":["hallo"],"command":"play","content":"!play hallo","messageType":"command","rawCommand":"!play hallo","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:28:33.721Z"}
+info: Identified command: !play with args: hallo {"timestamp":"2025-03-31T14:28:33.722Z"}
+info: Attempting to play sound: hallo {"timestamp":"2025-03-31T14:28:33.722Z"}
+info: Not in call, attempting to join call for room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:28:33.722Z"}
+info: Found MSC3401 call member events in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:28:33.722Z"}
+info: Found MSC3401 call member in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:28:33.722Z"}
+error: Error discovering JWT service URL: Request failed with status code 404 {"timestamp":"2025-03-31T14:28:33.730Z"}
+error: Failed to discover JWT service URL {"timestamp":"2025-03-31T14:28:33.730Z"}
+info: Homeserver URL: http://localhost:8008 {"timestamp":"2025-03-31T14:33:07.375Z"}
+info: User ID: @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:33:07.378Z"}
+info: Access token available: Yes {"timestamp":"2025-03-31T14:33:07.378Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-31T14:33:07.378Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-31T14:33:07.383Z"}
+info: Found 3 sound files {"timestamp":"2025-03-31T14:33:07.384Z"}
+info: Creating client with homeserver: http://localhost:8008 {"timestamp":"2025-03-31T14:33:07.384Z"}
+info: Matrix bot connected as @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:33:07.505Z"}
+info: Processing 5 existing rooms {"timestamp":"2025-03-31T14:33:07.505Z"}
+info: Checking room for voice capabilities: Audio (!KmSRSxjJLoaATYRlYO:my.matrix.host) {"timestamp":"2025-03-31T14:33:07.506Z"}
+info: Checking room for voice capabilities: SenZaII (!OuCanGlDHedNoMOlGc:my.matrix.host) {"timestamp":"2025-03-31T14:33:07.506Z"}
+info: Skipping encrypted room: Videoroom (!mltdVcgreGrpBLirVX:my.matrix.host) {"timestamp":"2025-03-31T14:33:07.506Z"}
+info: Checking room for voice capabilities: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:33:07.506Z"}
+info: Checking room for voice capabilities: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:33:07.506Z"}
+info: Bot started successfully - Version 1.0.0 {"features":["commands","voice","media"],"sanitized":true,"timestamp":"2025-03-31T14:33:07.508Z"}
+info: No Element Call widgets/events found in room !KmSRSxjJLoaATYRlYO:my.matrix.host {"timestamp":"2025-03-31T14:33:08.510Z"}
+info: No Element Call widgets/events found in room !OuCanGlDHedNoMOlGc:my.matrix.host {"timestamp":"2025-03-31T14:33:08.511Z"}
+info: Found MSC3401 call member events in room !xJAIifipTNQLmAUqCw:my.matrix.host {"timestamp":"2025-03-31T14:33:08.511Z"}
+info: Found voice widget in room: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:33:08.511Z"}
+info: Found MSC3401 call member events in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:33:08.511Z"}
+info: Found voice widget in room: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:33:08.512Z"}
+info: Shutting down bot... {"timestamp":"2025-03-31T14:33:10.426Z"}
+info: Homeserver URL: http://localhost:8008 {"timestamp":"2025-03-31T14:36:01.339Z"}
+info: User ID: @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:36:01.342Z"}
+info: Access token available: Yes {"timestamp":"2025-03-31T14:36:01.342Z"}
+info: Voice room ID: Not configured (will auto-detect) {"timestamp":"2025-03-31T14:36:01.342Z"}
+info: Initialized media directories: ./sounds, ./cache {"timestamp":"2025-03-31T14:36:01.345Z"}
+info: Found 3 sound files {"timestamp":"2025-03-31T14:36:01.345Z"}
+info: Creating client with homeserver: http://localhost:8008 {"timestamp":"2025-03-31T14:36:01.346Z"}
+info: Matrix bot connected as @soundboard:my.matrix.host {"timestamp":"2025-03-31T14:36:01.465Z"}
+info: Processing 5 existing rooms {"timestamp":"2025-03-31T14:36:01.465Z"}
+info: Checking room for voice capabilities: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:36:01.465Z"}
+info: Checking room for voice capabilities: Audio (!KmSRSxjJLoaATYRlYO:my.matrix.host) {"timestamp":"2025-03-31T14:36:01.466Z"}
+info: Checking room for voice capabilities: SenZaII (!OuCanGlDHedNoMOlGc:my.matrix.host) {"timestamp":"2025-03-31T14:36:01.466Z"}
+info: Skipping encrypted room: Videoroom (!mltdVcgreGrpBLirVX:my.matrix.host) {"timestamp":"2025-03-31T14:36:01.466Z"}
+info: Checking room for voice capabilities: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:36:01.466Z"}
+info: Bot started successfully - Version 1.0.0 {"features":["commands","voice","media"],"sanitized":true,"timestamp":"2025-03-31T14:36:01.468Z"}
+info: Found MSC3401 call member events in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:36:02.475Z"}
+info: Found voice widget in room: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:36:02.476Z"}
+info: No Element Call widgets/events found in room !KmSRSxjJLoaATYRlYO:my.matrix.host {"timestamp":"2025-03-31T14:36:02.476Z"}
+info: No Element Call widgets/events found in room !OuCanGlDHedNoMOlGc:my.matrix.host {"timestamp":"2025-03-31T14:36:02.476Z"}
+info: Found MSC3401 call member events in room !xJAIifipTNQLmAUqCw:my.matrix.host {"timestamp":"2025-03-31T14:36:02.476Z"}
+info: Found voice widget in room: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:36:02.476Z"}
+info: Scanning 5 rooms for voice capabilities {"timestamp":"2025-03-31T14:36:06.471Z"}
+info: Found MSC3401 call member events in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:36:06.471Z"}
+info: Detected voice room: Videoroom2 (!aaKSnWahloLOKFIQwR:my.matrix.host) {"timestamp":"2025-03-31T14:36:06.471Z"}
+info: No Element Call widgets/events found in room !KmSRSxjJLoaATYRlYO:my.matrix.host {"timestamp":"2025-03-31T14:36:06.472Z"}
+info: No Element Call widgets/events found in room !OuCanGlDHedNoMOlGc:my.matrix.host {"timestamp":"2025-03-31T14:36:06.472Z"}
+info: Found MSC3401 call member events in room !xJAIifipTNQLmAUqCw:my.matrix.host {"timestamp":"2025-03-31T14:36:06.472Z"}
+info: Detected voice room: New Video (!xJAIifipTNQLmAUqCw:my.matrix.host) {"timestamp":"2025-03-31T14:36:06.472Z"}
+info: Chat message received {"args":[],"command":"call-info","content":"!call-info","messageType":"command","rawCommand":"!call-info","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:36:19.908Z"}
+info: Identified command: !call-info with args:  {"timestamp":"2025-03-31T14:36:19.909Z"}
+info: Chat message received {"args":[],"command":"widgets","content":"!widgets","messageType":"command","rawCommand":"!widgets","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:36:51.435Z"}
+info: Identified command: !widgets with args:  {"timestamp":"2025-03-31T14:36:51.435Z"}
+info: Chat message received {"args":["hallo"],"command":"play","content":"!play hallo","messageType":"command","rawCommand":"!play hallo","roomId":"!aaKSnWahloLOKFIQwR:my.matrix.host","sender":"@petgel:my.matrix.host","timestamp":"2025-03-31T14:37:08.994Z"}
+info: Identified command: !play with args: hallo {"timestamp":"2025-03-31T14:37:08.995Z"}
+info: Attempting to play sound: hallo {"timestamp":"2025-03-31T14:37:08.995Z"}
+info: Not in call in this room, checking if room has call capabilities {"timestamp":"2025-03-31T14:37:08.995Z"}
+info: Found MSC3401 call member events in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:37:08.996Z"}
+info: Found MSC3401 call member in room !aaKSnWahloLOKFIQwR:my.matrix.host {"timestamp":"2025-03-31T14:37:08.996Z"}
+error: Error discovering JWT service URL: Request failed with status code 404 {"timestamp":"2025-03-31T14:37:09.014Z"}
+error: Failed to discover JWT service URL {"timestamp":"2025-03-31T14:37:09.014Z"}
+info: No call found in current room, looking for active calls with user @petgel:my.matrix.host {"timestamp":"2025-03-31T14:37:09.014Z"}
+info: Looking for active calls with user @petgel:my.matrix.host {"timestamp":"2025-03-31T14:37:09.014Z"}
+info: No active calls found for user @petgel:my.matrix.host {"timestamp":"2025-03-31T14:37:09.014Z"}
+info: Shutting down bot... {"timestamp":"2025-03-31T14:37:37.446Z"}

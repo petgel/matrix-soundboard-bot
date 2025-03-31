@@ -1,3 +1,4 @@
+// src/command-handler.js
 import { HelpCommand } from './help-command.js';
 import { PingCommand } from './ping-command.js';
 import { SoundsCommand } from './sounds-command.js';
@@ -6,6 +7,8 @@ import { StopCommand } from './stop-command.js';
 import { GrantCommand } from './grant-command.js';
 import { RoomsCommand } from './rooms-command.js';
 import { LeaveCommand } from './leave-command.js';
+import { WidgetsCommand } from './widgets-command.js';
+import { CallInfoCommand } from './call-info-command.js';
 
 export class CommandHandler {
   constructor({ client, logger, userId, mediaManager, voiceManager }) {
@@ -31,6 +34,8 @@ export class CommandHandler {
     this.registerCommand('grant', new GrantCommand(this.client, this.logger, this.userId));
     this.registerCommand('rooms', new RoomsCommand({ client: this.client, logger: this.logger }));
     this.registerCommand('leave', new LeaveCommand(this.voiceManager, this.logger));
+    this.registerCommand('widgets', new WidgetsCommand(this.client, this.logger));
+    this.registerCommand('call-info', new CallInfoCommand(this.client, this.logger));
   }
 
   registerCommand(name, handler) {
