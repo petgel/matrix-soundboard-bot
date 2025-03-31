@@ -23,6 +23,18 @@ export class CommandHandler {
     this.registerCommand('help', new HelpCommand({ client: this.client, logger: this.logger }));
     this.registerCommand('ping', new PingCommand({ client: this.client, logger: this.logger }));
     this.registerCommand('sounds', new SoundsCommand({ client: this.client, logger: this.logger }));
+    this.registerCommand('stop', new StopCommand({ client: this.client, logger: this.logger }));
+    this.registerCommand('grant', new GrantCommand(this.client, this.logger, this.userId));
+    this.registerCommand('rooms', new RoomsCommand({ client: this.client, logger: this.logger }));
+    this.registerCommand('leave', new LeaveCommand(this.voiceManager, this.logger));
+    this.registerCommand('widgets', new WidgetsCommand(this.client, this.logger));
+    // In the constructor of CommandHandler in src/command-handler.js
+    this.registerCommand('call-info', new CallInfoCommand({
+      client: this.client,
+      logger: this.logger,
+      userId: this.userId,
+      voiceManager: this.voiceManager
+    }));  
     this.registerCommand('play', new PlayCommand({
       client: this.client,
       logger: this.logger,
@@ -30,12 +42,6 @@ export class CommandHandler {
       mediaManager: this.mediaManager,
       voiceManager: this.voiceManager
     }));
-    this.registerCommand('stop', new StopCommand({ client: this.client, logger: this.logger }));
-    this.registerCommand('grant', new GrantCommand(this.client, this.logger, this.userId));
-    this.registerCommand('rooms', new RoomsCommand({ client: this.client, logger: this.logger }));
-    this.registerCommand('leave', new LeaveCommand(this.voiceManager, this.logger));
-    this.registerCommand('widgets', new WidgetsCommand(this.client, this.logger));
-    this.registerCommand('call-info', new CallInfoCommand(this.client, this.logger));
   }
 
   registerCommand(name, handler) {

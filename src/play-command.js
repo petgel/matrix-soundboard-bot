@@ -1,4 +1,3 @@
-// src/play-command.js
 import fs from 'fs/promises';
 import path from 'path';
 
@@ -15,7 +14,6 @@ export class PlayCommand {
   async execute(roomId, event, args) {
     const soundName = args[0]?.toLowerCase();
     const baseTxnId = `play-${Date.now()}`;
-    const sender = event.getSender();
     
     if (!soundName) {
       await this.client.sendTextMessage(roomId, "Please specify a sound name", `${baseTxnId}-1`);
@@ -25,42 +23,16 @@ export class PlayCommand {
     this.logger.info(`Attempting to play sound: ${soundName}`);
 
     try {
-      // First try to join the room where the command was sent
-      let joined = false;
-      let targetRoomId = roomId;
+      // First attempt to join call if not already in one
       const inCall = this.voiceManager.activeCalls.has(roomId);
-      
       if (!inCall) {
         this.logger.info(`Not in call in this room, checking if room has call capabilities`);
-        joined = await this.voiceManager.joinCall(roomId);
-      } else {
-        joined = true;
-      }
-      
-      // If we couldn't join a call in the current room, look for where the user is in a call
-      if (!joined) {
-        this.logger.info(`No call found in current room, looking for active calls with user ${sender}`);
-        const userCall = await this.voiceManager.findUserActiveCall(sender);
+        const joined = await this.voiceManager.joinCall(roomId);
         
-        if (userCall) {
-          this.logger.info(`Found user in call: ${userCall.roomId}`);
-          await this.client.sendTextMessage(
-            roomId, 
-            `Found you in call: ${userCall.roomName}. Attempting to join...`, 
-            `${baseTxnId}-3`
-          );
-          
-          joined = await this.voiceManager.joinCall(userCall.roomId);
-          if (joined) {
-            // Update the roomId to the room where we found the call
-            targetRoomId = userCall.roomId;
-          }
+        if (!joined) {
+          await this.client.sendTextMessage(roomId, `Not in active call - could not auto-join`, `${baseTxnId}-2`);
+          return;
         }
-      }
-      
-      if (!joined) {
-        await this.client.sendTextMessage(roomId, `Not in active call - could not auto-join`, `${baseTxnId}-2`);
-        return;
       }
 
       // Use media manager to find sound with proper extension handling
@@ -87,7 +59,7 @@ export class PlayCommand {
       }
 
       // Play sound using buffer
-      const result = await this.voiceManager.playSound(targetRoomId, soundBuffer);
+      const result = await this.voiceManager.playSound(roomId, soundBuffer);
       
       if (!result) {
         await this.client.sendTextMessage(roomId, `❌ Failed to play sound: No response from voice system`, `${baseTxnId}-5`);

@@ -1,4 +1,3 @@
-// src/voice-manager.js
 import { ElementCallDetector } from './element-call-detector.js';
 
 export class VoiceManager {
@@ -22,39 +21,6 @@ export class VoiceManager {
             return null;
         }
 
-        // First, check for MSC3401 call events (primary method for Element Call)
-        const callEvents = room.currentState.getStateEvents('org.matrix.msc3401.call') || [];
-        if (callEvents.length > 0) {
-            this.logger.info(`Found MSC3401 call event in room ${roomId}`);
-            const callEvent = callEvents[0];
-            const content = callEvent.getContent();
-            
-            if (content) {
-                // Even if there's no focus URL, we can still use this to detect a call
-                return {
-                    widgetId: callEvent.getStateKey(),
-                    url: content.focus?.url || `https://call.element.io/#/?roomId=${encodeURIComponent(roomId)}`,
-                    name: 'Element Call',
-                    data: content,
-                    isMSC3401: true
-                };
-            }
-        }
-
-        // Check for call member events
-        const callMemberEvents = room.currentState.getStateEvents('org.matrix.msc3401.call.member') || [];
-        if (callMemberEvents.length > 0) {
-            this.logger.info(`Found MSC3401 call member events in room ${roomId}`);
-            // A call member event indicates an active call
-            return {
-                widgetId: 'element-call',
-                url: `https://call.element.io/#/?roomId=${encodeURIComponent(roomId)}`,
-                name: 'Element Call',
-                data: {},
-                isMSC3401Member: true
-            };
-        }
-
         // Check for widget events
         const widgetEvents = room.currentState.getStateEvents('m.widget') || [];
         const modularWidgetEvents = room.currentState.getStateEvents('im.vector.modular.widgets') || [];
@@ -65,21 +31,13 @@ export class VoiceManager {
             try {
                 const content = event.getContent();
                 const widgetUrl = content.url || content.data?.url;
-                const widgetName = content.name || '';
 
-                // Check for various ways a call widget might appear
-                if (widgetUrl && (
-                    widgetUrl.includes('element-call') ||
-                    widgetUrl.includes('call.element.io') ||
-                    widgetUrl.includes('jitsi') ||
-                    widgetName.toLowerCase().includes('call') ||
-                    widgetName.toLowerCase().includes('voice')
-                )) {
-                    this.logger.info(`Found voice widget: ${widgetUrl}`);
+                if (widgetUrl && widgetUrl.includes('element-call')) {
+                    this.logger.info(`Found Element Call widget: ${widgetUrl}`);
                     return {
                         widgetId: event.getStateKey(),
                         url: widgetUrl,
-                        name: content.name || 'Voice Call',
+                        name: content.name || 'Element Call',
                         data: content.data || {}
                     };
                 }
@@ -88,71 +46,71 @@ export class VoiceManager {
             }
         }
 
-        // As a last resort, check for room members to detect an active call
-        try {
-            // Check if the room is named or has properties suggesting it's a call room
-            const roomName = room.name?.toLowerCase() || '';
-            if (roomName.includes('call') || roomName.includes('voice') || roomName.includes('video')) {
-                this.logger.info(`Room name suggests it's a call room: ${roomName}`);
+        // Check for MSC3401 call events
+        const callEvents = room.currentState.getStateEvents('org.matrix.msc3401.call') || [];
+        if (callEvents.length > 0) {
+            this.logger.info(`Found MSC3401 call event in room ${roomId}`);
+            const callEvent = callEvents[0];
+            const content = callEvent.getContent();
+            
+            if (content && content.focus && content.focus.url) {
                 return {
-                    widgetId: 'inferred-call',
-                    url: `https://call.element.io/#/?roomId=${encodeURIComponent(roomId)}`,
-                    name: 'Inferred Call',
-                    data: {},
-                    isInferred: true
+                    widgetId: callEvent.getStateKey(),
+                    url: content.focus.url,
+                    name: 'Element Call',
+                    data: content
                 };
             }
-        } catch (error) {
-            this.logger.error(`Error checking room properties: ${error.message}`);
+        }
+        
+        // Check for MSC3401 call member events
+        const callMemberEvents = room.currentState.getStateEvents('org.matrix.msc3401.call.member') || [];
+        if (callMemberEvents.length > 0) {
+            this.logger.info(`Found MSC3401 call member events in room ${roomId}`);
+            
+            // Find our own call member event or use the first one
+            const myUserId = this.client.getUserId();
+            
+            // First try to find our own event
+            let relevantEvent = callMemberEvents.find(event => event.getStateKey() === myUserId);
+            
+            // If we don't have our own event, find any event with a LiveKit foci
+            if (!relevantEvent) {
+                for (const event of callMemberEvents) {
+                    const content = event.getContent();
+                    const fociArray = content.foci || content.foci_preferred || [];
+                    
+                    if (fociArray && fociArray.length > 0) {
+                        const livekitFoci = fociArray.find(f => f.type === 'livekit');
+                        if (livekitFoci) {
+                            relevantEvent = event;
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            if (relevantEvent) {
+                const content = relevantEvent.getContent();
+                const fociArray = content.foci || content.foci_preferred || [];
+                
+                if (fociArray && fociArray.length > 0) {
+                    const livekitFoci = fociArray.find(f => f.type === 'livekit');
+                    if (livekitFoci) {
+                        this.logger.info(`Found MSC3401 call member in room ${roomId}`);
+                        return {
+                            widgetId: relevantEvent.getStateKey(),
+                            url: livekitFoci.url || livekitFoci.livekit_service_url,
+                            name: 'Element Call (MSC3401)',
+                            data: content
+                        };
+                    }
+                }
+            }
         }
 
         this.logger.info(`No Element Call widgets/events found in room ${roomId}`);
         return null;
-    }
-
-    async findUserActiveCall(userId) {
-        try {
-            if (!userId || !this.client) {
-                this.logger.error("Invalid parameters for finding user call");
-                return null;
-            }
-            
-            this.logger.info(`Looking for active calls with user ${userId}`);
-            
-            const rooms = this.client.getRooms();
-            for (const room of rooms) {
-                try {
-                    // Skip rooms where the user isn't a member
-                    const userMember = room.getMember(userId);
-                    if (!userMember) continue;
-                    
-                    // Check for call member events
-                    const callMemberEvents = room.currentState.getStateEvents('org.matrix.msc3401.call.member') || [];
-                    
-                    // Look for call member events for this specific user
-                    for (const memberEvent of callMemberEvents) {
-                        const stateKey = memberEvent.getStateKey();
-                        if (stateKey.startsWith(userId)) {
-                            this.logger.info(`Found active call with user ${userId} in room ${room.roomId} (${room.name || 'unnamed'})`);
-                            return {
-                                roomId: room.roomId,
-                                roomName: room.name || 'unnamed room',
-                                callId: memberEvent.getContent().call_id || '',
-                                widget: await this.getCallWidget(room.roomId)
-                            };
-                        }
-                    }
-                } catch (error) {
-                    this.logger.error(`Error checking room ${room.roomId}: ${error.message}`);
-                }
-            }
-            
-            this.logger.info(`No active calls found for user ${userId}`);
-            return null;
-        } catch (error) {
-            this.logger.error(`Error finding user call: ${error.message}`);
-            return null;
-        }
     }
 
     async joinCall(roomId) {
@@ -167,42 +125,132 @@ export class VoiceManager {
                 this.logger.info(`Already in call in room ${roomId}`);
                 return true;
             }
+            
+            this.logger.info(`Not in call in this room, checking if room has call capabilities`);
 
-            // Find call widget with retries
-            let callWidget = null;
-            for (let attempt = 1; attempt <= 3; attempt++) {
-                callWidget = await this.getCallWidget(roomId);
-                if (callWidget) break;
-
-                this.logger.info(`Call widget not found (attempt ${attempt}), retrying...`);
-                await new Promise(resolve => setTimeout(resolve, attempt * 1000));
+            // Try to get MSC3401 call member events
+            const callMemberEvents = room.currentState.getStateEvents('org.matrix.msc3401.call.member') || [];
+            if (callMemberEvents.length > 0) {
+                this.logger.info(`Found ${callMemberEvents.length} MSC3401 call member events in room ${roomId}`);
+                
+                // Try to find a member event with LiveKit foci
+                let livekitUrl = null;
+                let callId = null;
+                
+                for (const memberEvent of callMemberEvents) {
+                    const content = memberEvent.getContent();
+                    // Check both foci and foci_preferred fields
+                    const fociArray = content.foci || content.foci_preferred || [];
+                    
+                    for (const focus of fociArray) {
+                        if (focus.type === 'livekit') {
+                            livekitUrl = focus.url || focus.livekit_service_url;
+                            callId = content.call_id || roomId;
+                            break;
+                        }
+                    }
+                    
+                    if (livekitUrl) break;
+                }
+                
+                if (livekitUrl) {
+                    this.logger.info(`Found LiveKit URL: ${livekitUrl}`);
+                    
+                    // Use this URL as the JWT service URL
+                    const jwtServiceUrl = livekitUrl;
+                    
+                    // Generate a stable room name from the room ID
+                    const roomName = roomId.replace(/[^a-zA-Z0-9]/g, '');
+                    
+                    // Get JWT token for LiveKit
+                    const token = await this.elementCallDetector.getLiveKitToken(
+                        jwtServiceUrl,
+                        this.client.getAccessToken(),
+                        roomId,
+                        callId
+                    );
+                    
+                    if (!token) {
+                        this.logger.error('Failed to get LiveKit token');
+                        return false;
+                    }
+                    
+                    // Connect to LiveKit
+                    const connection = await this.elementCallDetector.connectToLiveKit(
+                        livekitUrl,
+                        token,
+                        roomName
+                    );
+                    
+                    if (!connection) {
+                        this.logger.error('Failed to connect to LiveKit');
+                        return false;
+                    }
+                    
+                    this.activeCalls.set(roomId, {
+                        connection,
+                        livekitParams: {
+                            server: livekitUrl,
+                            roomName: roomName,
+                            callId: callId
+                        },
+                        joinedAt: new Date()
+                    });
+                    
+                    this.logger.info(`Successfully joined call in room ${roomId} via MSC3401`);
+                    return true;
+                } else {
+                    this.logger.error('No LiveKit URL found in call member events');
+                }
             }
 
+            // Fall back to widget-based approach
+            const callWidget = await this.getCallWidget(roomId);
             if (!callWidget) {
-                this.logger.error(`No call widget or event found in ${roomId} after 3 attempts`);
+                // Check if there's an active call elsewhere in the room with the sender
+                this.logger.info(`No call found in current room, looking for active calls with other users`);
+                
+                // Try to find a participant with an active call
+                const sender = room.getMember(this.client.getUserId());
+                if (sender) {
+                    this.logger.info(`Looking for active calls with user ${sender.userId}`);
+                    // Check other rooms to see if they have calls with this user
+                    const rooms = this.client.getRooms();
+                    for (const otherRoom of rooms) {
+                        if (otherRoom.roomId === roomId) continue;
+                        
+                        const otherCallWidget = await this.getCallWidget(otherRoom.roomId);
+                        if (otherCallWidget) {
+                            const otherSender = otherRoom.getMember(sender.userId);
+                            if (otherSender) {
+                                this.logger.info(`Found active call with user ${sender.userId} in room ${otherRoom.roomId}`);
+                                // Try to join this call instead
+                                const joined = await this.joinCall(otherRoom.roomId);
+                                if (joined) {
+                                    // We'll use this call for playback
+                                    this.activeCalls.set(roomId, this.activeCalls.get(otherRoom.roomId));
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                this.logger.info(`No active calls found for user`);
                 return false;
-            }
-
-            // Log what kind of call we found
-            if (callWidget.isMSC3401) {
-                this.logger.info(`Found MSC3401 call in room ${roomId}`);
-            } else if (callWidget.isMSC3401Member) {
-                this.logger.info(`Found MSC3401 call member in room ${roomId}`);
-            } else if (callWidget.isInferred) {
-                this.logger.info(`Inferred call in room ${roomId}`);
-            } else {
-                this.logger.info(`Found widget call in room ${roomId}`);
             }
 
             // Extract LiveKit params from widget URL
             const livekitParams = this.elementCallDetector.parseWidgetUrl(callWidget.url);
             if (!livekitParams) {
-                this.logger.error('Failed to extract LiveKit parameters');
+                this.logger.error('Failed to extract LiveKit parameters from widget URL');
                 return false;
             }
 
             // Get JWT service URL
-            const jwtServiceUrl = await this.elementCallDetector.getJwtServiceUrl(this.homeserverUrl);
+            const jwtServiceUrl = await this.elementCallDetector.getJwtServiceUrl(this.homeserverUrl)
+                || "https://livekit-jwt.call.element.io"; // Fallback for testing
+            
             if (!jwtServiceUrl) {
                 this.logger.error('Failed to discover JWT service URL');
                 return false;
@@ -213,7 +261,7 @@ export class VoiceManager {
                 jwtServiceUrl,
                 this.client.getAccessToken(),
                 roomId,
-                livekitParams.roomName || roomId
+                livekitParams.roomName
             );
 
             if (!token) {
@@ -223,9 +271,9 @@ export class VoiceManager {
 
             // Connect to LiveKit
             const connection = await this.elementCallDetector.connectToLiveKit(
-                livekitParams.server || "https://call.element.io",
+                livekitParams.server,
                 token,
-                livekitParams.roomName || roomId
+                livekitParams.roomName
             );
 
             if (!connection) {
@@ -240,7 +288,7 @@ export class VoiceManager {
                 widget: callWidget
             });
 
-            this.logger.info(`Successfully joined call in room ${roomId}`);
+            this.logger.info(`Successfully joined call in room ${roomId} via widget`);
             return true;
         } catch (error) {
             this.logger.error(`Join call failed: ${error.message}`);
@@ -300,17 +348,20 @@ export class VoiceManager {
             // Check if we're in a call
             if (!this.activeCalls.has(roomId)) {
                 // Try to join call
+                this.logger.info(`Not in call, attempting to join call for room ${roomId}`);
                 const joined = await this.joinCall(roomId);
+                
                 if (!joined) {
                     throw new Error('Not in active call');
                 }
             }
 
             const callData = this.activeCalls.get(roomId);
+            const roomName = callData.livekitParams?.roomName || roomId.replace(/[^a-zA-Z0-9]/g, '');
             
             // Play through Element Call detector
             const result = await this.elementCallDetector.playAudioBuffer(
-                callData.livekitParams.roomName,
+                roomName,
                 soundBuffer
             );
 
